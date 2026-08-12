@@ -1,10 +1,8 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-900">
-    <h1 class="text-5xl font-bold text-blue-500">
-      Tailwind is Working! 🚀
-    </h1>
+  <div class="min-h-screen bg-slate-950 text-white">
+    <h1>My Portfolio</h1>
   </div>
 </template>
 
