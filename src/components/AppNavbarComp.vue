@@ -1,3 +1,0 @@
-<template>
-    //comment
-</template>
