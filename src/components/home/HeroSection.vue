@@ -8,7 +8,7 @@
     </p>
 
     <h1
-      class="mt-2 bg-gradient-to-r from-violet-400 to-indigo-500 bg-clip-text text-5xl font-extrabold text-transparent md:text-7xl lg:text-8xl"
+      class="mt-2 bg-linear-to-r from-violet-400 to-indigo-500 bg-clip-text text-5xl font-extrabold text-transparent md:text-7xl lg:text-8xl"
     >
       {{ hero.name }}
     </h1>
@@ -68,8 +68,4 @@ const hero: IHeroData = {
     'MySQL',
   ],
 }
-const buttonLabels = {
-    contact: 'Contact Me',
-    view: 'View Projects',
-};
 </script>
