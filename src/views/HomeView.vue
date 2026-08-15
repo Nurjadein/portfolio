@@ -7,7 +7,7 @@
     </h1>
 
     <p class="mt-4 text-xl text-slate-300">
-      FullStack Developer
+      Frontend Developer
     </p>
 
     <p class="mt-6 max-w-2xl text-slate-400">
