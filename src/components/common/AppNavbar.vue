@@ -3,19 +3,17 @@
     <nav
       class="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-slate-800/50 bg-slate-900/50 px-6 py-4 backdrop-blur-md"
     >
-      <!-- Logo -->
       <a
         href="#"
         class="text-xl font-bold tracking-wide text-white"
       >
         <img
-          :src="logo"
-          alt="Nurjadein Logo"
+          :src="siteConfig.logo"
+          :alt="siteConfig.name"
           class="h-10 w-10 rounded-xl"
         />
       </a>
 
-      <!-- Navigation -->
       <ul class="hidden items-center gap-8 md:flex">
         <li
           v-for="item in navItem"
@@ -39,7 +37,6 @@
         </li>
       </ul>
 
-      <!-- Resume Button -->
       <a
         href="#"
         class="rounded-lg bg-violet-600 px-4 py-2 font-medium text-white transition hover:bg-violet-500"
@@ -50,7 +47,7 @@
   </header>
 </template>
 <script setup lang="ts">
-import logo from '@/assets/n-logo.png';
+import { siteConfig } from '@/config/site.config';
 import type { INavItem } from '@/interfaces/nav.interface';
 
 const navItem: INavItem[] = [
