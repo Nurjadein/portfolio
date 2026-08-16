@@ -7,6 +7,7 @@ export const heroData: IHeroData = {
   description:
     'Building scalable web applications using Vue.js, TypeScript, Quasar, Tailwind CSS, NestJS, and modern development practices.',
   contactButtonText: 'Contact Me',
+  availability: 'Available for Remote Opportunities',
   projectsButtonText: 'View Projects',
   technologies: [
     'Vue.js',
