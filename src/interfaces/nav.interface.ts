@@ -1,4 +1,4 @@
-export interface INavItem {
+export interface INavItems {
   label: string;
   href: string;
 };
