@@ -16,7 +16,7 @@
 
       <ul class="hidden items-center gap-8 md:flex">
         <li
-          v-for="item in navItem"
+          v-for="item in navItems"
           :key="item.href"
         >
           <a
@@ -48,28 +48,5 @@
 </template>
 <script setup lang="ts">
 import { siteConfig } from '@/config/site.config';
-import type { INavItem } from '@/interfaces/nav.interface';
-
-const navItem: INavItem[] = [
-  {
-    label: 'About',
-    href: '#about',
-  },
-  {
-    label: 'Skills',
-    href: '#skills',
-  },
-  {
-    label: 'Experience',
-    href: '#experience',
-  },
-  {
-    label: 'Projects',
-    href: '#projects',
-  },
-  {
-    label: 'Contact',
-    href: '#contact',
-  },
-];
+import { navItems } from '@/config/nav.config';
 </script>
