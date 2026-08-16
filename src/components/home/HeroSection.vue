@@ -1,7 +1,6 @@
 <template>
   <section
-    id="hero"
-    class="flex min-h-screen flex-col items-center justify-center px-6 text-center"
+    class="flex flex-col items-center justify-center px-6 py-6 text-center"
   >
     <p class="text-lg text-slate-400">
       {{ hero.greeting }}
