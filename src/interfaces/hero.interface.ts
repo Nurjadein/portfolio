@@ -4,6 +4,7 @@ export interface IHeroData {
   title: string
   description: string
   contactButtonText: string
+  availability: string
   projectsButtonText: string
   technologies: string[]
 };
