@@ -1,7 +1,7 @@
 <template>
   <header class="sticky top-0 z-50 px-6 py-4">
     <nav
-      class="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-slate-800/50 bg-slate-900/50 px-6 py-4 backdrop-blur-md"
+      class="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-slate-800/50 bg-slate-900/70 px-6 py-4 backdrop-blur-md"
     >
       <a
         href="#"
