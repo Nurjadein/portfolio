@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 z-50 px-6 py-4">
+  <header class="sticky top-0 z-50 px-4 py-2">
     <nav
       class="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-slate-800/50 bg-slate-900/70 px-6 py-4 backdrop-blur-md"
     >
@@ -10,7 +10,7 @@
         <img
           :src="siteConfig.logo"
           :alt="siteConfig.name"
-          class="h-10 w-10 rounded-xl"
+          class="h-12 w-12 rounded-xl"
         />
       </a>
 
