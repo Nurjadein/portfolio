@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'mx-auto w-full px-6',
+      'mx-auto w-full px-4 sm:px-6 lg:px-8',
       maxWidthClass,
     ]"
   >
@@ -13,22 +13,22 @@
 import { computed } from 'vue';
 
 interface IProps {
-  size?: 'md' | 'lg' | 'xl';
+  size?: 'sm' | 'md' | 'lg';
 }
 
 const props = withDefaults(
   defineProps<IProps>(),
   {
-    size: 'xl',
+    size: 'lg',
   },
 );
 
 const maxWidthClass = computed(() => {
   switch (props.size) {
-    case 'md':
+    case 'sm':
       return 'max-w-4xl';
 
-    case 'lg':
+    case 'md':
       return 'max-w-5xl';
 
     default:
