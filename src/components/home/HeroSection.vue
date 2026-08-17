@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <SectionContainer class="flex min-h-[calc(100vh-96px)] flex-col items-center justify-center px-6 text-center">
+  <section class="flex min-h-[calc(100vh-96px)] flex-col items-center justify-center text-center">
+    <TheContainer >
       <p class="text-lg text-slate-400">
         {{ heroData.greeting }}
       </p>
@@ -14,7 +14,7 @@
         {{ heroData.title }}
       </p>
 
-      <p class="mt-6 max-w-2xl text-slate-400">
+      <p class="mx-auto mt-6 max-w-2xl text-slate-400">
         {{ heroData.description }}
       </p>
 
@@ -53,10 +53,10 @@
             {{ technology }}
           </span>
         </div>
-      </SectionContainer>
+      </TheContainer>
   </section>
 </template>
 <script setup lang="ts">
 import { heroData } from '@/config/hero.config';
-import SectionContainer from '@/components/common/SectionContainer.vue';
+import TheContainer from '@/components/common/TheContainer.vue';
 </script>
