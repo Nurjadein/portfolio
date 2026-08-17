@@ -5,7 +5,7 @@ export const heroData: IHeroData = {
   name: 'Nurjadein Abdulmorid',
   title: 'Frontend Developer',
   description:
-    'Building scalable web applications using Vue.js, TypeScript, Quasar, Tailwind CSS, NestJS, and modern development practices.',
+    'Building scalable and maintainable web applications with modern JavaScript and TypeScript technologies.',
   contactButtonText: 'Contact Me',
   availability: 'Available for Remote Opportunities',
   projectsButtonText: 'View Projects',
