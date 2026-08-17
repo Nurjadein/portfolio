@@ -1,11 +1,16 @@
 <template>
   <section class="flex min-h-[calc(100vh-96px)] flex-col items-center justify-center text-center">
     <TheContainer >
+       <img
+        :src="Basmalah"
+        alt="Bismillah"
+        class="mx-auto mb-12 h-auto max-w-xs opacity-90 md:max-w-sm"
+      />
       <p class="text-lg text-slate-400">
         {{ heroData.greeting }}
       </p>
       <h1
-        class="mt-2 bg-linear-to-r from-violet-400 to-indigo-500 bg-clip-text text-5xl font-extrabold text-transparent md:text-7xl lg:text-8xl"
+        class="mt-2 bg-linear-to-r from-violet-400 to-indigo-500 bg-clip-text text-5xl font-extrabold text-transparent md:text-6xl lg:text-7xl"
       >
         {{ heroData.name }}
       </h1>
@@ -57,6 +62,7 @@
   </section>
 </template>
 <script setup lang="ts">
+import Basmalah from '@/assets/Basmalah.png';
 import { heroData } from '@/config/hero.config';
 import TheContainer from '@/components/common/TheContainer.vue';
 </script>
