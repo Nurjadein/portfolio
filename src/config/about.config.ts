@@ -8,7 +8,7 @@ export const aboutData:IAboutData = {
 
         Graduated with a BS in Information Technology major in Database Systems from Mindanao State University Main Campus, Marawi City, Philippines. Experienced in developing maintainable frontend and backend solutions, API integration, state management, and database-driven applications.
 
-        I am into building scalable, production-ready systems using industry-standard practices, with a strong focus on clean architecture, maintainability, and long-term growth.
+        Focused on building scalable, production-ready systems using industry-standard practices, with a strong focus on clean architecture, maintainability, and long-term growth.
         `,
 
   highlights: [
