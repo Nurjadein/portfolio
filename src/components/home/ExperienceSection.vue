@@ -130,9 +130,7 @@
               </p>
             </div>
 
-            <!-- Projects or contributions -->
             <div class="mt-8 md:mt-0">
-              <!-- Projects -->
               <div
                 v-if="experience.projects?.length"
                 class="space-y-6"
@@ -289,7 +287,6 @@
                 </article>
               </div>
 
-              <!-- Contributions for experiences without projects -->
               <div
                 v-else-if="experience.contributions?.length"
                 class="
