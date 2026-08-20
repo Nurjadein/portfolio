@@ -14,10 +14,6 @@ export const navItems: INavItems[] = [
     href: '#experience',
   },
   {
-    label: 'Projects',
-    href: '#projects',
-  },
-  {
     label: 'Contact',
     href: '#contact',
   },
