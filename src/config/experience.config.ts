@@ -1,84 +1,149 @@
-import type { IExperience } from '@/interfaces/experience.interface' 
+import type { IExperience } from '@/interfaces/experience.interface'
 
-export const intro:string = `My professional experience and the projects I've contributed to throughout my career.`;
+export const intro: string =
+  `My professional experience and the projects I've contributed to throughout my career.`
 
-export const experiences: IExperience[] = 
-[ 
-    {   company: 'ITSMarawi', 
-        role: 'Developer', 
-        startDate: 'Jul 2025', 
-        endDate: 'Feb 2026', 
-        location: 'Marawi City', 
-        description: `Collaborated with a frontend development team on a transportation-focused subsystem of the e-SeQR platform.`, 
-        projects: [ 
-                    {   name: 'e-SeQR Transportation', 
-                        description: `A transportation subsystem designed to support vehicle and terminal workflows
-                                      through QR-based vehicle scanning, trip recording, and vehicle credit/load management.`,
-                        status: 'Development project · Not brought to production', 
-                        contributions: [ 'Adapted existing Vue and Quasar components and functionality from the main e-SeQR system.',
-                                         'Contributed to frontend development and modifications using TypeScript and Pinia.', 
-                                         'Worked on vehicle and terminal workflows, including QR-based scanning and trip-related functionality.', 
-                                         'Contributed to the vehicle credit/load mechanism used to deduct trip credits after scans.', 
-                                         'Fixed frontend bugs and issues during development.', 
-                                        ], 
-                        technologies: [ 'Vue.js', 'Quasar', 'TypeScript', 'Pinia', 'Git', 'GitHub', ], 
-                        url: 'https://eseqr-transpo.web.app/', }, ], }, 
-    {   company: 'Shahia Food Limited Company', 
-        role: 'Team Member', 
-        startDate: 'Sep 2023', 
-        endDate: 'Nov 2024', 
-        location: 'KSA', 
-        description: 'Worked across multiple store operations in a fast-paced restaurant environment.', 
-        contributions: [ 'Prepared beverages and served food and donuts.', 'Handled cashiering and customer service.',
-                         'Performed stock counting and inventory-related tasks.', 
-                         'Maintained store cleanliness and supported daily store operations.', 
-                        ], 
-    }, 
-    {   company: 'ITSMarawi', 
-        role: 'Associate Software Engineer', 
-        startDate: 'Sep 2021',
-        endDate: 'Jun 2023', 
-        location: 'Marawi City', 
-        description: 'Collaborated with a software development team on internal and community-focused applications across frontend and backend development.',
-        projects: [ { 
-                        name: 'Human Resources System (HRS)', 
-                        description: 'An internal human resources application used within the organization for local office operations.', 
-                        status: 'Internal application · Private', 
-                        contributions: ['Contributed to frontend development using Vue, Quasar, Vuex, and TypeScript.', 
-                                        'Worked within an offline-first application environment using existing IndexedDB-based functionality.', 
-                                        'Worked within a NestJS-based microservices environment.', 
-                                        'Contributed to debugging and testing, including temporary use of Cypress.', 
-                                        ], 
-                        technologies: [ 'Vue.js', 'Quasar', 'TypeScript', 'Vuex', 'Cypress', 'NestJS', 'Git', 'GitHub', ], 
-                    }, 
-                    { 
-                        name: 'SeeApp Ranao', 
-                        description: 'A vaccination management and monitoring system developed during the COVID-19 pandemic, supporting online booking, registration, vaccination records, vaccination ID processing, and QR-based monitoring workflows.', 
-                        status: 'Public project', 
-                        contributions: ['Contributed to both frontend and backend development as part of the development team.', 'Developed within the existing Quasar/Vue and NestJS application stack.', 
-                                        'Worked with TypeScript and Vuex across the application.', 'Used OpenAPI-generated API functionality to communicate between the frontend and backend.', 
-                                        'Collaborated using Git and GitHub throughout development.', 
-                                       ], 
-                        technologies: [ 'Vue.js', 'Quasar', 'TypeScript', 'Vuex', 'NestJS', 'OpenAPI', 'Git', 'GitHub', ], 
-                        url: 'https://seeapp-vaccine.itsmarawi.com/', }, ], 
-                    }, 
-                    {   company: 'ITSMarawi', 
-                        role: 'Developer Intern', 
-                        startDate: 'May 2021', 
-                        endDate: 'Aug 2021', 
-                        location: 'Marawi City', 
-                        description: 'Worked as part of a development team on Kandori, an online restaurant portal developed to help local MSMEs establish online ordering capabilities.', 
-                        projects: [ 
-                                    {   name: 'Kandori', 
-                                        description: 'An online restaurant portal developed to help local MSMEs provide online ordering services while reducing reliance on high-commission food delivery platforms.', 
-                                        status: 'Project', 
-                                        contributions: ['Contributed to frontend and backend development as part of the development team.', 
-                                                        'Worked with Quasar/Vue, TypeScript, Vuex, and NestJS.', 'Used OpenAPI-based API functionality during application development.', 
-                                                        'Used Git and GitHub for version control and team collaboration.', 'Gained practical experience working within an Agile-oriented software development workflow.', 
-                                                        ], 
-                                        technologies: [ 'Vue.js', 'Quasar', 'TypeScript', 'Vuex', 'NestJS', 'OpenAPI', 'Git', 'GitHub', ], 
-                                        url: 'https://kandori.itsmarawi.com/', 
-                                    }, 
-                                  ], 
-                    }, 
-];
+export const experiences: IExperience[] = [
+  {
+    company: 'ITSMarawi',
+    role: 'Developer',
+    startDate: 'Jul 2025',
+    endDate: 'Feb 2026',
+    location: 'Marawi City',
+    description:
+      'Collaborated with a frontend development team on a transportation-focused subsystem of the e-SeQR platform.',
+    projects: [
+      {
+        name: 'e-SeQR Transportation',
+        description:
+          `A transportation subsystem designed to support vehicle and terminal workflows
+          through QR-based vehicle scanning, trip recording, and vehicle credit/load management.`,
+        status: 'Development project · Not brought to production',
+        contributions: [
+          'Adapted existing Vue and Quasar components and functionality from the main e-SeQR system.',
+          'Contributed to frontend development and modifications using TypeScript and Pinia.',
+          'Worked on vehicle and terminal workflows, including QR-based scanning and trip-related functionality.',
+          'Contributed to the vehicle credit/load functionality used for trip credit deductions after scans.',
+          'Fixed frontend bugs and issues during development.',
+        ],
+        technologies: [
+          'Vue.js',
+          'Quasar',
+          'TypeScript',
+          'Pinia',
+          'Git',
+          'GitHub',
+        ],
+        url: 'https://eseqr-transpo.web.app/',
+      },
+    ],
+  },
+
+  {
+    company: 'Shahia Food Limited Company',
+    role: 'Team Member',
+    startDate: 'Sep 2023',
+    endDate: 'Nov 2024',
+    location: 'KSA',
+    description:
+      'Worked across multiple store operations in a fast-paced restaurant environment.',
+    contributions: [
+      'Prepared beverages and served food and donuts.',
+      'Handled cashiering and customer service.',
+      'Performed stock counting and inventory-related tasks.',
+      'Maintained store cleanliness and supported daily store operations.',
+    ],
+  },
+
+  {
+    company: 'ITSMarawi',
+    role: 'Associate Software Engineer',
+    startDate: 'Sep 2021',
+    endDate: 'Jun 2023',
+    location: 'Marawi City',
+    description:
+      'Collaborated with a software development team on internal and community-focused applications across frontend and backend development.',
+    projects: [
+      {
+        name: 'Human Resources System (HRS)',
+        description:
+          'An internal human resources application used within the organization for local office operations.',
+        status: 'Internal application · Private',
+        contributions: [
+          'Contributed to frontend development using Vue, Quasar, Vuex, and TypeScript.',
+          'Worked within a NestJS-based microservices environment.',
+          'Contributed to debugging and testing, including temporary use of Cypress.',
+        ],
+        technologies: [
+          'Vue.js',
+          'Quasar',
+          'TypeScript',
+          'Vuex',
+          'Cypress',
+          'NestJS',
+          'Git',
+          'GitHub',
+        ],
+      },
+      {
+        name: 'SeeApp Ranao',
+        description:
+          'A vaccination management and monitoring system developed during the COVID-19 pandemic, supporting online booking, registration, vaccination records, vaccination ID processing, and QR-based monitoring workflows.',
+        status: 'Public project',
+        contributions: [
+          'Contributed to frontend and backend development as part of the development team.',
+          'Worked within the existing Quasar/Vue and NestJS application stack.',
+          'Worked with TypeScript and Vuex across the application.',
+          'Used OpenAPI-generated API functionality to communicate between the frontend and backend.',
+          'Collaborated using Git and GitHub throughout development.',
+        ],
+        technologies: [
+          'Vue.js',
+          'Quasar',
+          'TypeScript',
+          'Vuex',
+          'NestJS',
+          'OpenAPI',
+          'Git',
+          'GitHub',
+        ],
+        url: 'https://seeapp-vaccine.itsmarawi.com/',
+      },
+    ],
+  },
+
+  {
+    company: 'ITSMarawi',
+    role: 'Developer Intern',
+    startDate: 'May 2021',
+    endDate: 'Aug 2021',
+    location: 'Marawi City',
+    description:
+      'Worked as part of a development team on Kandori, an online restaurant portal developed to help local MSMEs establish online ordering capabilities.',
+    projects: [
+      {
+        name: 'Kandori',
+        description:
+          'An online restaurant portal developed to help local MSMEs provide online ordering services while reducing reliance on high-commission food delivery platforms.',
+        contributions: [
+          'Contributed to frontend and backend development as part of the development team.',
+          'Worked with Quasar/Vue, TypeScript, Vuex, and NestJS.',
+          'Used OpenAPI-based API functionality during application development.',
+          'Used Git and GitHub for version control and team collaboration.',
+          'Gained practical experience working within an Agile-oriented software development workflow.',
+        ],
+        technologies: [
+          'Vue.js',
+          'Quasar',
+          'TypeScript',
+          'Vuex',
+          'NestJS',
+          'OpenAPI',
+          'Git',
+          'GitHub',
+        ],
+        url: 'https://kandori.itsmarawi.com/',
+      },
+    ],
+  },
+]
