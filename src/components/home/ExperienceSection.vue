@@ -40,7 +40,7 @@
           before:top-2
           before:h-[calc(100%-1rem)]
           before:w-px
-          before:bg-slate-800
+          before:bg-slate-600
           md:before:left-1/2
           md:before:-translate-x-1/2
         "
