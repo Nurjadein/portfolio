@@ -52,8 +52,8 @@
                 :class="[
                   'rounded-lg px-3 py-2 transition-all duration-300',
                   activeSection === getSectionId(item.href)
-                    ? 'bg-slate-700 text-violet-400'
-                    : 'text-slate-300 hover:bg-slate-700 hover:text-violet-400',
+                    ? ' bg-indigo-600/30 text-white'
+                    : 'text-slate-300 hover:bg-indigo-600/30 hover:text-white',
                 ]"
                 @click="handleNavigation(item.href)"
               >
@@ -89,7 +89,7 @@
               p-2
               text-slate-300
               transition
-              hover:bg-slate-800
+              bg-indigo-600/30
               hover:text-white
               md:hidden
             "
@@ -188,8 +188,8 @@
                 :class="[
                   'block rounded-lg px-3 py-3 transition',
                   activeSection === getSectionId(item.href)
-                    ? 'bg-slate-800 text-violet-400'
-                    : 'text-slate-300 hover:bg-slate-800 hover:text-violet-400',
+                    ? 'bg-indigo-600/30 text-white'
+                    : 'text-slate-300 hover:bg-indigo-600/30 hover:text-white',
                 ]"
                 @click="handleNavigation(item.href)"
               >
@@ -235,6 +235,8 @@ const activeSection = ref('home')
 
 let observer: IntersectionObserver | null = null
 
+const visibleSections = new Map<Element, IntersectionObserverEntry>()
+
 const getSectionId = (href: string) => href.slice(1)
 
 const handleNavigation = (href: string) => {
@@ -249,15 +251,20 @@ onMounted(() => {
 
   observer = new IntersectionObserver(
     (entries) => {
-      const visibleSections = entries
-        .filter((entry) => entry.isIntersecting)
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          visibleSections.set(entry.target, entry)
+        } else {
+          visibleSections.delete(entry.target)
+        }
+      })
+
+      const currentSection = [...visibleSections.values()]
         .sort(
           (a, b) =>
             Math.abs(a.boundingClientRect.top - 80) -
             Math.abs(b.boundingClientRect.top - 80),
-        )
-
-      const currentSection = visibleSections[0]
+        )[0]
 
       if (currentSection?.target instanceof HTMLElement) {
         activeSection.value = currentSection.target.id
@@ -278,5 +285,6 @@ onMounted(() => {
 onUnmounted(() => {
   observer?.disconnect()
   observer = null
+  visibleSections.clear()
 })
 </script>
