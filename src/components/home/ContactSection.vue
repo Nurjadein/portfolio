@@ -1,7 +1,7 @@
 <template>
   <section
     id="contact"
-    class="py-24"
+    class="py-16"
   >
     <TheContainer>
       <div class="text-center">
@@ -33,6 +33,7 @@
         <a
           :href="socialLinks.email.url"
           class="
+            gap-2
             mt-8
             inline-flex
             items-center
@@ -52,12 +53,10 @@
         >
           Get in touch
 
-          <span
-            class="ml-2"
-            aria-hidden="true"
-          >
-            ↗
-          </span>
+          <SocialIcon
+                :icon="socialLinks.email.icon"
+                :label="socialLinks.email.label"
+            />
         </a>
 
         <p
@@ -76,19 +75,28 @@
             flex
             justify-center
             gap-6
-            text-sm
           "
         >
           <a
             :href="socialLinks.github.url"
             target="_blank"
             rel="noopener noreferrer"
+            :aria-label="socialLinks.github.label"
             class="
+              flex
+              items-center
+              gap-2
+              text-sm
               text-slate-400
               transition
               hover:text-white
             "
           >
+            <SocialIcon
+                :icon="socialLinks.github.icon"
+                :label="socialLinks.github.label"
+            />
+
             {{ socialLinks.github.label }}
           </a>
 
@@ -96,12 +104,22 @@
             :href="socialLinks.linkedin.url"
             target="_blank"
             rel="noopener noreferrer"
+            :aria-label="socialLinks.linkedin.label"
             class="
+              flex
+              items-center
+              gap-2
+              text-sm
               text-slate-400
               transition
               hover:text-white
             "
           >
+           <SocialIcon
+                :icon="socialLinks.linkedin.icon"
+                :label="socialLinks.linkedin.label"
+            />
+
             {{ socialLinks.linkedin.label }}
           </a>
         </div>
@@ -113,4 +131,5 @@
 <script setup lang="ts">
 import TheContainer from '@/components/common/TheContainer.vue'
 import { socialLinks } from '@/config/social.config'
+import SocialIcon from '@/components/common/SocialIcon.vue'
 </script>
