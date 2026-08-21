@@ -2,6 +2,10 @@ import type { INavItems } from "@/interfaces/nav.interface";
 
 export const navItems: INavItems[] = [
   {
+    label: 'Home',
+    href: '#home',
+  },
+  {
     label: 'About',
     href: '#about',
   },
