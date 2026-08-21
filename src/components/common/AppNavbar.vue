@@ -24,13 +24,16 @@
       <nav class="px-6 py-4">
         <div class="flex items-center justify-between">
           <a
-            href="#"
+            href="#home"
+            aria-label="Home"
             class="text-xl font-bold tracking-wide text-white"
           >
-            <img
+            <AppImage
               :src="siteConfig.logo"
               :alt="siteConfig.name"
-              class="h-12 w-12 rounded-xl"
+              container-class="h-12 w-12 rounded-xl"
+              image-class="h-full w-full object-contain"
+              loading="eager"
             />
           </a>
 
@@ -41,16 +44,18 @@
             >
               <a
                 :href="item.href"
-                class="
-                  rounded-lg
-                  px-3
-                  py-2
-                  text-slate-300
-                  transition-all
-                  duration-300
-                  hover:bg-slate-800
-                  hover:text-violet-400
+                :aria-current="
+                  activeSection === getSectionId(item.href)
+                    ? 'page'
+                    : undefined
                 "
+                :class="[
+                  'rounded-lg px-3 py-2 transition-all duration-300',
+                  activeSection === getSectionId(item.href)
+                    ? 'bg-slate-700 text-violet-400'
+                    : 'text-slate-300 hover:bg-slate-700 hover:text-violet-400',
+                ]"
+                @click="handleNavigation(item.href)"
               >
                 {{ item.label }}
               </a>
@@ -175,17 +180,18 @@
             >
               <a
                 :href="item.href"
-                class="
-                  block
-                  rounded-lg
-                  px-3
-                  py-3
-                  text-slate-300
-                  transition
-                  hover:bg-slate-800
-                  hover:text-violet-400
+                :aria-current="
+                  activeSection === getSectionId(item.href)
+                    ? 'page'
+                    : undefined
                 "
-                @click="isMenuOpen = false"
+                :class="[
+                  'block rounded-lg px-3 py-3 transition',
+                  activeSection === getSectionId(item.href)
+                    ? 'bg-slate-800 text-violet-400'
+                    : 'text-slate-300 hover:bg-slate-800 hover:text-violet-400',
+                ]"
+                @click="handleNavigation(item.href)"
               >
                 {{ item.label }}
               </a>
@@ -219,9 +225,58 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { siteConfig } from '@/config/site.config'
 import { navItems } from '@/config/nav.config'
+import AppImage from '@/components/common/AppImage.vue'
 
 const isMenuOpen = ref(false)
+const activeSection = ref('home')
+
+let observer: IntersectionObserver | null = null
+
+const getSectionId = (href: string) => href.slice(1)
+
+const handleNavigation = (href: string) => {
+  activeSection.value = getSectionId(href)
+  isMenuOpen.value = false
+}
+
+onMounted(() => {
+  const sections = navItems
+    .map((item) => document.getElementById(getSectionId(item.href)))
+    .filter((section): section is HTMLElement => section !== null)
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      const visibleSections = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort(
+          (a, b) =>
+            Math.abs(a.boundingClientRect.top - 80) -
+            Math.abs(b.boundingClientRect.top - 80),
+        )
+
+      const currentSection = visibleSections[0]
+
+      if (currentSection?.target instanceof HTMLElement) {
+        activeSection.value = currentSection.target.id
+      }
+    },
+    {
+      root: null,
+      rootMargin: '-80px 0px -55% 0px',
+      threshold: 0,
+    },
+  )
+
+  sections.forEach((section) => {
+    observer?.observe(section)
+  })
+})
+
+onUnmounted(() => {
+  observer?.disconnect()
+  observer = null
+})
 </script>
