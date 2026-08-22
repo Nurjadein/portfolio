@@ -1,5 +1,6 @@
 <template>
   <header
+    ref="navbarRef"
     class="
       sticky
       top-0
@@ -63,7 +64,8 @@
           </ul>
 
           <a
-            href="#"
+            :href="siteConfig.resume"
+            target="_blank"
             class="
               hidden
               rounded-lg
@@ -199,7 +201,8 @@
 
             <li>
               <a
-                href="#"
+                :href="siteConfig.resume"
+                target="_blank"
                 class="
                   block
                   rounded-lg
@@ -232,10 +235,10 @@ import AppImage from '@/components/common/AppImage.vue'
 
 const isMenuOpen = ref(false)
 const activeSection = ref('home')
+const navbarRef = ref<HTMLElement | null>(null)
 
 let observer: IntersectionObserver | null = null
-
-const visibleSections = new Map<Element, IntersectionObserverEntry>()
+let resizeObserver: ResizeObserver | null = null
 
 const getSectionId = (href: string) => href.slice(1)
 
@@ -244,47 +247,56 @@ const handleNavigation = (href: string) => {
   isMenuOpen.value = false
 }
 
-onMounted(() => {
-  const sections = navItems
+const getSections = () => {
+  return navItems
     .map((item) => document.getElementById(getSectionId(item.href)))
     .filter((section): section is HTMLElement => section !== null)
+}
+
+const createObserver = () => {
+  observer?.disconnect()
+
+  const navbarHeight = navbarRef.value?.getBoundingClientRect().height ?? 0
 
   observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          visibleSections.set(entry.target, entry)
-        } else {
-          visibleSections.delete(entry.target)
-        }
-      })
+      const activeEntry = entries.find(
+        (entry) => entry.isIntersecting,
+      )
 
-      const currentSection = [...visibleSections.values()]
-        .sort(
-          (a, b) =>
-            Math.abs(a.boundingClientRect.top - 80) -
-            Math.abs(b.boundingClientRect.top - 80),
-        )[0]
-
-      if (currentSection?.target instanceof HTMLElement) {
-        activeSection.value = currentSection.target.id
+      if (activeEntry?.target instanceof HTMLElement) {
+        activeSection.value = activeEntry.target.id
       }
     },
     {
       root: null,
-      rootMargin: '-80px 0px -55% 0px',
+      rootMargin: `-${navbarHeight}px 0px -80% 0px`,
       threshold: 0,
     },
   )
 
-  sections.forEach((section) => {
+  getSections().forEach((section) => {
     observer?.observe(section)
   })
+}
+
+onMounted(() => {
+  createObserver()
+
+  if (navbarRef.value) {
+    resizeObserver = new ResizeObserver(() => {
+      createObserver()
+    })
+
+    resizeObserver.observe(navbarRef.value)
+  }
 })
 
 onUnmounted(() => {
   observer?.disconnect()
+  resizeObserver?.disconnect()
+
   observer = null
-  visibleSections.clear()
+  resizeObserver = null
 })
 </script>
