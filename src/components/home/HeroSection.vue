@@ -25,6 +25,7 @@
           text-transparent
           md:text-6xl
           lg:text-7xl
+          leading-tight
         "
       >
         {{ heroData.name }}
