@@ -3,7 +3,7 @@ import resume from '@/assets/my-cv.pdf'
 
 export const siteConfig = {
   name: 'Nurjadein',
-  role: 'Frontend Developer',
+  role: 'Software Developer',
   logo,
   resume
 };
