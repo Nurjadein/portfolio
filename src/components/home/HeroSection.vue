@@ -56,7 +56,7 @@
 
       <div class="mt-8 flex flex-wrap justify-center gap-4">
         <a
-          href="#projects"
+          href="#experience"
           class="
             rounded-lg
             bg-violet-600
@@ -68,7 +68,7 @@
             hover:bg-violet-500
           "
         >
-          {{ heroData.projectsButtonText }}
+          {{ heroData.experienceButtonText }}
         </a>
 
         <a

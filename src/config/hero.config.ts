@@ -8,7 +8,7 @@ export const heroData: IHeroData = {
     'Building scalable and maintainable web applications with modern JavaScript and TypeScript technologies.',
   contactButtonText: 'Contact Me',
   availability: 'Available for Remote Opportunities',
-  projectsButtonText: 'View Projects',
+  experienceButtonText: 'View Experience',
   technologies: [
     'Vue.js',
     'TypeScript',
