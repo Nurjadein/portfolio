@@ -64,8 +64,7 @@
           </ul>
 
           <a
-            :href="siteConfig.resume"
-            target="_blank"
+            href="#"
             class="
               hidden
               rounded-lg
@@ -78,6 +77,7 @@
               hover:bg-violet-500
               md:block
             "
+            @click="viewResume"
           >
             Resume
           </a>
@@ -232,6 +232,7 @@ import { onMounted, onUnmounted, ref } from 'vue'
 import { siteConfig } from '@/config/site.config'
 import { navItems } from '@/config/nav.config'
 import AppImage from '@/components/common/AppImage.vue'
+import { dialogBus } from '@/dialogs/core/dialog-bus'
 
 const isMenuOpen = ref(false)
 const activeSection = ref('home')
@@ -299,4 +300,12 @@ onUnmounted(() => {
   observer = null
   resizeObserver = null
 })
+
+function viewResume(){
+  dialogBus.emit('viewResume',{
+    callback: () => {
+      console.log('Test Callback')
+    },
+  })
+}
 </script>
