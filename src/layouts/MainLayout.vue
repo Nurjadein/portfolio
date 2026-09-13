@@ -27,7 +27,7 @@
   <main class="relative z-10">
     <RouterView />
   </main>
-
+  <DialogHost />
   <AppFooter class="relative z-10" />
 </div>
 </template>
@@ -37,4 +37,5 @@ import { RouterView } from 'vue-router'
 
 import AppFooter from '@/components/common/AppFooter.vue'
 import AppNavbar from '@/components/common/AppNavbar.vue'
+import DialogHost from '@/dialogs/DialogHost.vue';
 </script>
