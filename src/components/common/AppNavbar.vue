@@ -79,7 +79,7 @@
             "
             @click="viewResume"
           >
-            Resume
+            Resumé
           </a>
 
           <button
