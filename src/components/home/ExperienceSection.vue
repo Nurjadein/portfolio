@@ -9,7 +9,7 @@
           class="
             text-3xl
             font-bold
-            text-white
+            text-foreground
             md:text-4xl
           "
         >
@@ -23,7 +23,7 @@
             max-w-2xl
             text-lg
             leading-8
-            text-slate-400
+            text-foreground-secondary
           "
         >
           {{ intro }}
@@ -40,7 +40,7 @@
           before:top-2
           before:h-[calc(100%-1rem)]
           before:w-px
-          before:bg-slate-600
+          before:bg-border
           md:before:left-1/2
           md:before:-translate-x-1/2
         "
@@ -63,8 +63,8 @@
               w-6
               rounded-full
               border-4
-              border-slate-950
-              bg-slate-700
+              border-background
+              bg-surface-muted
               md:left-1/2
               md:-translate-x-1/2
             "
@@ -87,7 +87,7 @@
                 class="
                   text-sm
                   font-medium
-                  text-slate-400
+                  text-foreground-secondary
                 "
               >
                 {{ experience.startDate }} —
@@ -99,7 +99,7 @@
                   mt-2
                   text-2xl
                   font-semibold
-                  text-white
+                  text-foreground
                 "
               >
                 {{ experience.role }}
@@ -109,7 +109,7 @@
                 class="
                   mt-1
                   text-base
-                  text-slate-400
+                  text-foreground-secondary
                 "
               >
                 {{ experience.company }}
@@ -123,7 +123,7 @@
                   mt-4
                   text-base
                   leading-7
-                  text-slate-400
+                  text-foreground-secondary
                 "
               >
                 {{ experience.description }}
@@ -141,8 +141,8 @@
                   class="
                     rounded-2xl
                     border
-                    border-slate-800
-                    bg-slate-900/50
+                    border-border
+                    bg-surface
                     p-6
                     backdrop-blur-sm
                   "
@@ -162,7 +162,7 @@
                         class="
                           text-xl
                           font-semibold
-                          text-white
+                          text-foreground
                         "
                       >
                         {{ project.name }}
@@ -173,7 +173,7 @@
                         class="
                           mt-1
                           text-sm
-                          text-slate-500
+                          text-foreground-muted
                         "
                       >
                         {{ project.status }}
@@ -189,9 +189,9 @@
                         shrink-0
                         text-sm
                         font-medium
-                        text-slate-300
+                        text-foreground-secondary
                         transition
-                        hover:text-white
+                        hover:text-primary
                       "
                     >
                       View project
@@ -204,7 +204,7 @@
                       mt-5
                       text-sm
                       leading-7
-                      text-slate-400
+                      text-foreground-secondary
                     "
                   >
                     {{ project.description }}
@@ -218,7 +218,7 @@
                       class="
                         text-sm
                         font-medium
-                        text-slate-300
+                        text-foreground-secondary
                       "
                     >
                       Contributions
@@ -238,7 +238,7 @@
                           gap-3
                           text-sm
                           leading-6
-                          text-slate-400
+                          text-foreground-secondary
                         "
                       >
                         <span
@@ -248,7 +248,7 @@
                             w-1.5
                             shrink-0
                             rounded-full
-                            bg-slate-500
+                            bg-foreground-muted
                           "
                           aria-hidden="true"
                         />
@@ -273,12 +273,12 @@
                       class="
                         rounded-full
                         border
-                        border-slate-700
-                        bg-slate-950/50
+                        border-border
+                        bg-surface-muted
                         px-3
                         py-1.5
                         text-xs
-                        text-slate-300
+                        text-foreground-secondary
                       "
                     >
                       {{ technology }}
@@ -292,8 +292,8 @@
                 class="
                   rounded-2xl
                   border
-                  border-slate-800
-                  bg-slate-900/50
+                  border-border
+                  bg-surface
                   p-6
                   backdrop-blur-sm
                 "
@@ -302,7 +302,7 @@
                   class="
                     text-sm
                     font-medium
-                    text-slate-300
+                    text-foreground-secondary
                   "
                 >
                   Contributions
@@ -322,7 +322,7 @@
                       gap-3
                       text-sm
                       leading-6
-                      text-slate-400
+                      text-foreground-secondary
                     "
                   >
                     <span
@@ -332,7 +332,7 @@
                         w-1.5
                         shrink-0
                         rounded-full
-                        bg-slate-500
+                        bg-foreground-muted
                       "
                       aria-hidden="true"
                     />
