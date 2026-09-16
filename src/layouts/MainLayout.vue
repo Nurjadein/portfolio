@@ -1,41 +1,24 @@
 <template>
-  <div class="min-h-screen bg-slate-950 text-slate-100">
-  <div class="fixed inset-0 z-0 overflow-hidden">
+  <div class="min-h-screen bg-background text-foreground">
+    <TechnicalBackground />
 
-    <div
-      class="absolute inset-0 opacity-20
-      bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),
-      linear-gradient(to_bottom,#1e293b_1px,transparent_1px)]
-      bg-size[80px_80px]"
-    ></div>
+    <AppNavbar class="relative z-10" />
 
-    <div
-      class="absolute left-0 top-0 h-160 w-160 blur-[180px] rounded-full bg-violet-600/30 "
-    />
+    <main class="relative z-10">
+      <RouterView />
+    </main>
 
-    <div
-      class="absolute right-0 top-40 h-160 w-160 blur-[180px] rounded-full bg-indigo-600/30 "
-    />
+    <DialogHost />
 
-    <div
-      class="absolute bottom-0 left-1/3 h-160 w-160 blur-[180px] rounded-full bg-violet-600/30 "
-    />
+    <AppFooter class="relative z-10" />
   </div>
-
-  <AppNavbar class="relative z-10" />
-
-  <main class="relative z-10">
-    <RouterView />
-  </main>
-  <DialogHost />
-  <AppFooter class="relative z-10" />
-</div>
 </template>
 
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 
+import TechnicalBackground from '@/components/background/technical/TechnicalBackground.vue'
 import AppFooter from '@/components/common/AppFooter.vue'
 import AppNavbar from '@/components/common/AppNavbar.vue'
-import DialogHost from '@/dialogs/DialogHost.vue';
+import DialogHost from '@/dialogs/DialogHost.vue'
 </script>
