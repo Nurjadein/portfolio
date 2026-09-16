@@ -23,8 +23,8 @@
           animate-spin
           rounded-full
           border-2
-          border-slate-600
-          border-t-violet-400
+          border-foreground-muted
+          border-t-primary
         "
       />
     </div>
