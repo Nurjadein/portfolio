@@ -8,8 +8,6 @@
       items-center
       justify-center
       rounded-lg
-      border
-      border-slate-700
       bg-slate-200
     "
   >
