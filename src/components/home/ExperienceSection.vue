@@ -40,7 +40,7 @@
           before:top-2
           before:h-[calc(100%-1rem)]
           before:w-px
-          before:bg-border
+          before:bg-foreground
           md:before:left-1/2
           md:before:-translate-x-1/2
         "
@@ -63,7 +63,7 @@
               w-6
               rounded-full
               border-4
-              border-background
+              border-foreground
               bg-surface-muted
               md:left-1/2
               md:-translate-x-1/2
