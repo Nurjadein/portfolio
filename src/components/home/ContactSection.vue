@@ -9,7 +9,7 @@
           class="
             text-3xl
             font-bold
-            text-white
+            text-foreground
             md:text-4xl
           "
         >
@@ -23,7 +23,7 @@
             max-w-2xl
             text-lg
             leading-8
-            text-slate-400
+            text-foreground-secondary
           "
         >
           Have an opportunity or a question?
@@ -33,37 +33,37 @@
         <a
           :href="socialLinks.email.url"
           class="
-            gap-2
             mt-8
             inline-flex
             items-center
+            gap-2
             rounded-lg
             border
-            border-slate-700
-            bg-slate-900
+            border-border
+            bg-surface
             px-6
             py-3
             text-sm
             font-medium
-            text-white
+            text-foreground
             transition
-            hover:border-slate-600
-            hover:bg-slate-800
+            hover:border-primary
+            hover:bg-surface-muted
           "
         >
           Get in touch
 
           <SocialIcon
-                :icon="socialLinks.email.icon"
-                :label="socialLinks.email.label"
-            />
+            :icon="socialLinks.email.icon"
+            :label="socialLinks.email.label"
+          />
         </a>
 
         <p
           class="
             mt-4
             text-sm
-            text-slate-300
+            text-foreground-muted
           "
         >
           {{ socialLinks.email.url.replace('mailto:', '') }}
@@ -87,14 +87,14 @@
               items-center
               gap-2
               text-sm
-              text-slate-400
+              text-foreground-secondary
               transition
-              hover:text-white
+              hover:text-primary
             "
           >
             <SocialIcon
-                :icon="socialLinks.github.icon"
-                :label="socialLinks.github.label"
+              :icon="socialLinks.github.icon"
+              :label="socialLinks.github.label"
             />
 
             {{ socialLinks.github.label }}
@@ -110,14 +110,14 @@
               items-center
               gap-2
               text-sm
-              text-slate-400
+              text-foreground-secondary
               transition
-              hover:text-white
+              hover:text-primary
             "
           >
-           <SocialIcon
-                :icon="socialLinks.linkedin.icon"
-                :label="socialLinks.linkedin.label"
+            <SocialIcon
+              :icon="socialLinks.linkedin.icon"
+              :label="socialLinks.linkedin.label"
             />
 
             {{ socialLinks.linkedin.label }}
@@ -130,6 +130,6 @@
 
 <script setup lang="ts">
 import TheContainer from '@/components/common/TheContainer.vue'
-import { socialLinks } from '@/config/social.config'
 import SocialIcon from '@/components/common/SocialIcon.vue'
+import { socialLinks } from '@/config/social.config'
 </script>
