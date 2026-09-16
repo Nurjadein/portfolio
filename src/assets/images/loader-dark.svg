@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Modern Gradient Palette -->
+    <linearGradient id="saasGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="50%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+
+    <!-- Core Glow Gradient -->
+    <linearGradient id="coreGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA" />
+      <stop offset="100%" stop-color="#A7F3D0" />
+    </linearGradient>
+
+    <!-- Soft Ambient Glow Filter -->
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    /* Fast Smooth Orbital Spinner */
+    .spinner-arc {
+      transform-origin: center;
+      animation: spin 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    /* Inner Pulsing Gem */
+    .pulse-core {
+      transform-origin: center;
+      animation: pulseCore 2s ease-in-out infinite alternate;
+    }
+
+    /* Background Ambient Atmosphere */
+    .ambient-glow {
+      transform-origin: center;
+      animation: ambient 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pulseCore {
+      0% { transform: scale(0.85) rotate(0deg); opacity: 0.7; }
+      100% { transform: scale(1.1) rotate(45deg); opacity: 1; }
+    }
+
+    @keyframes ambient {
+      0% { opacity: 0.15; transform: scale(0.8); }
+      100% { opacity: 0.35; transform: scale(1.2); }
+    }
+  </style>
+
+  <!-- Ambient Light Backing -->
+  <circle class="ambient-glow" cx="256" cy="256" r="140" fill="url(#saasGrad)" filter="url(#softGlow)" />
+
+  <!-- Base Track Ring -->
+  <circle cx="256" cy="256" r="140" fill="none" stroke="#1E293B" stroke-width="12" />
+
+  <!-- Animated Loading Ring -->
+  <circle class="spinner-arc" cx="256" cy="256" r="140" fill="none" 
+          stroke="url(#saasGrad)" 
+          stroke-width="12" 
+          stroke-linecap="round" 
+          stroke-dasharray="880" 
+          stroke-dashoffset="600" />
+
+  <!-- Central Abstract Diamond Icon -->
+  <g class="pulse-core" filter="url(#softGlow)">
+    <rect x="206" y="206" width="100" height="100" rx="24" fill="url(#coreGlow)" />
+  </g>
+</svg>
