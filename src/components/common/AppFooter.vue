@@ -1,5 +1,5 @@
 <template>
-  <footer class="border-t border-slate-800 bg-slate-900/40">
+  <footer class="border-t border-border bg-surface-muted">
     <TheContainer>
       <div
         class="
@@ -13,7 +13,7 @@
           md:flex-row
         "
       >
-        <p class="text-slate-300">
+        <p class="text-foreground">
           © {{ new Date().getFullYear() }} {{ heroData.name }}.
           All rights reserved.
         </p>
@@ -31,14 +31,14 @@
             rel="noopener noreferrer"
             :aria-label="socialLinks.github.label"
             class="
-              text-slate-400
+              text-foreground-secondary
               transition
-              hover:text-white
+              hover:text-primary
             "
           >
             <SocialIcon
-                :icon="socialLinks.github.icon"
-                :label="socialLinks.github.label"
+              :icon="socialLinks.github.icon"
+              :label="socialLinks.github.label"
             />
           </a>
 
@@ -48,14 +48,14 @@
             rel="noopener noreferrer"
             :aria-label="socialLinks.linkedin.label"
             class="
-              text-slate-400
+              text-foreground-secondary
               transition
-              hover:text-white
+              hover:text-primary
             "
           >
             <SocialIcon
-                :icon="socialLinks.linkedin.icon"
-                :label="socialLinks.linkedin.label"
+              :icon="socialLinks.linkedin.icon"
+              :label="socialLinks.linkedin.label"
             />
           </a>
 
@@ -63,14 +63,14 @@
             :href="socialLinks.email.url"
             :aria-label="socialLinks.email.label"
             class="
-              text-slate-400
+              text-foreground-secondary
               transition
-              hover:text-white
+              hover:text-primary
             "
           >
             <SocialIcon
-                :icon="socialLinks.email.icon"
-                :label="socialLinks.email.label"
+              :icon="socialLinks.email.icon"
+              :label="socialLinks.email.label"
             />
           </a>
         </div>
