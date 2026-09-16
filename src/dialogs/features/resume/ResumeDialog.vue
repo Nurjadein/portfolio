@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import BaseDialog from '@/dialogs/core/BaseDialog.vue'
-import resumeUrl from '@/assets/my-cv.pdf'
+import resumeUrl from '@/assets/documents/my-cv.pdf'
 
 const props = defineProps<{
   callback?: () => void
