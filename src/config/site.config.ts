@@ -1,5 +1,5 @@
-import logo from '@/assets/n-logo.png';
-import resume from '@/assets/my-cv.pdf'
+import logo from '@/assets/images/n-logo.png';
+import resume from '@/assets/documents/my-cv.pdf'
 
 export const siteConfig = {
   name: 'Nurjadein',
