@@ -6,7 +6,12 @@
     <TheContainer size="md">
       <div class="text-center">
         <h2
-          class="text-3xl font-bold text-white md:text-4xl"
+          class="
+            text-3xl
+            font-bold
+            text-foreground
+            md:text-4xl
+          "
         >
           {{ aboutData.title }}
         </h2>
@@ -19,7 +24,7 @@
             whitespace-pre-line
             text-lg
             leading-8
-            text-slate-400
+            text-foreground-secondary
           "
         >
           {{ aboutData.description }}
@@ -40,13 +45,13 @@
           class="
             rounded-2xl
             border
-            border-slate-800
-            bg-slate-900/50
+            border-border
+            bg-surface
             p-6
             backdrop-blur-sm
           "
         >
-          <p class="text-sm text-slate-400">
+          <p class="text-sm text-foreground-muted">
             {{ item.label }}
           </p>
 
@@ -55,7 +60,7 @@
               mt-2
               text-xl
               font-semibold
-              text-white
+              text-foreground
             "
           >
             {{ item.value }}
@@ -67,6 +72,6 @@
 </template>
 
 <script setup lang="ts">
-import TheContainer from '@/components/common/TheContainer.vue';
-import { aboutData } from '@/config/about.config';
+import TheContainer from '@/components/common/TheContainer.vue'
+import { aboutData } from '@/config/about.config'
 </script>
