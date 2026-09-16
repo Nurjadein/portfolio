@@ -15,8 +15,8 @@
         flex-col
         overflow-hidden
         rounded-2xl
-        bg-slate-900
-        text-slate-100
+        bg-surface
+        text-foreground
         shadow-2xl
       "
       :style="{
@@ -24,7 +24,6 @@
         height,
       }"
     >
-      <!-- Header -->
       <header
         class="
           flex
@@ -32,7 +31,7 @@
           items-center
           justify-between
           border-b
-          border-slate-800
+          border-border
           px-6
           py-4
         "
@@ -46,10 +45,10 @@
           class="
             rounded-lg
             p-2
-            text-slate-400
+            text-foreground-secondary
             transition
-            hover:bg-slate-800
-            hover:text-white
+            hover:bg-surface-muted
+            hover:text-foreground
           "
           aria-label="Close dialog"
           @click="emit('close')"
@@ -71,7 +70,6 @@
         </button>
       </header>
 
-      <!-- Content -->
       <div class="min-h-0 flex-1">
         <slot />
       </div>
