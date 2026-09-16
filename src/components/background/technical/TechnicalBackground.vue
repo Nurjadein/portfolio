@@ -14,25 +14,40 @@
         absolute
         left-1/2
         top-0
+        hidden
         h-full
         min-h-[900px]
         w-full
         min-w-[1200px]
         -translate-x-1/2
+        md:block
       "
       viewBox="0 0 1600 1000"
       fill="none"
       preserveAspectRatio="xMidYMid slice"
     >
       <TechnicalBackgroundDefs />
-
       <TechnicalBackgroundAtmosphere />
-
       <TechnicalBackgroundCircuits />
-
       <TechnicalBackgroundReactor />
-
       <TechnicalBackgroundFloor />
+    </svg>
+
+    <svg
+      class="
+        absolute
+        inset-0
+        block
+        h-full
+        w-full
+        md:hidden
+      "
+      viewBox="0 0 390 844"
+      fill="none"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <TechnicalBackgroundDefs />
+      <TechnicalBackgroundMobile />
     </svg>
 
     <div
@@ -61,5 +76,6 @@ import TechnicalBackgroundAtmosphere from './TechnicalBackgroundAtmosphere.vue'
 import TechnicalBackgroundCircuits from './TechnicalBackgroundCircuits.vue'
 import TechnicalBackgroundDefs from './TechnicalBackgroundDefs.vue'
 import TechnicalBackgroundFloor from './TechnicalBackgroundFloor.vue'
+import TechnicalBackgroundMobile from './TechnicalBackgroundMobile.vue'
 import TechnicalBackgroundReactor from './TechnicalBackgroundReactor.vue'
 </script>
