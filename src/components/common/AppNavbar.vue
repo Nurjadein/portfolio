@@ -331,7 +331,7 @@
                 "
                 @click="isMenuOpen = false"
               >
-                Resume
+                Resumé
               </a>
             </li>
           </ul>
