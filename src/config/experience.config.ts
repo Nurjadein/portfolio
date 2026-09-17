@@ -40,7 +40,7 @@ export const experiences: IExperience[] = [
   },
 
   {
-    company: 'Shahia Food Limited Company',
+    company: '(DUNKIN) Shahia Food Limited Company',
     role: 'Team Member',
     startDate: 'Sep 2023',
     endDate: 'Nov 2024',
