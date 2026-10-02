@@ -20,6 +20,19 @@
   }
 }
 
+@utility hero-reveal {
+  opacity: 0;
+
+  @variant motion-safe {
+    animation: var(--animate-hero-reveal);
+  }
+
+  @variant motion-reduce {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
