@@ -3,42 +3,29 @@
     id="home"
     class="
       flex
-      min-h-[calc(100vh-96px)]
       flex-col
       items-center
-      justify-center
+      py-5
       text-center
     "
   >
     <TheContainer>
       <div
-        class="
-          opacity-0
-          motion-safe:animate-hero-reveal
-          motion-reduce:opacity-100
-          motion-reduce:transform-none
-        "
+        class="hero-reveal"
         style="animation-delay: 150ms"
       >
         <AppImage
           :src="basmalahImage"
           alt="Bismillah"
-          container-class="mb-12"
-          image-class="h-16 w-auto pt-2 opacity-90 sm:h-20 md:h-24 lg:h-28"
+          container-class="mb-8"
+          image-class="h-16 w-auto opacity-90 sm:h-20 md:h-22 lg:h-24"
           loading="eager"
           fetch-priority="high"
         />
       </div>
 
       <p
-        class="
-          opacity-0
-          motion-safe:animate-hero-reveal
-          motion-reduce:opacity-100
-          motion-reduce:transform-none
-          text-lg
-          text-foreground-secondary
-        "
+        class="hero-reveal text-lg text-foreground-secondary"
         style="animation-delay: 250ms"
       >
         {{ heroData.greeting }}
@@ -46,10 +33,7 @@
 
       <h1
         class="
-          opacity-0
-          motion-safe:animate-hero-reveal
-          motion-reduce:opacity-100
-          motion-reduce:transform-none
+          hero-reveal
           mt-2
           bg-linear-to-r
           from-hero-name-start
@@ -70,10 +54,7 @@
 
       <p
         class="
-          opacity-0
-          motion-safe:animate-hero-reveal
-          motion-reduce:opacity-100
-          motion-reduce:transform-none
+          hero-reveal
           mt-4
           text-xl
           font-medium
@@ -87,10 +68,7 @@
 
       <p
         class="
-          opacity-0
-          motion-safe:animate-hero-reveal
-          motion-reduce:opacity-100
-          motion-reduce:transform-none
+          hero-reveal
           mx-auto
           mt-6
           max-w-2xl
@@ -103,10 +81,7 @@
 
       <div
         class="
-          opacity-0
-          motion-safe:animate-hero-reveal
-          motion-reduce:opacity-100
-          motion-reduce:transform-none
+          hero-reveal
           mt-8
           flex
           flex-wrap
@@ -152,10 +127,7 @@
 
       <div
         class="
-          opacity-0
-          motion-safe:animate-hero-reveal
-          motion-reduce:opacity-100
-          motion-reduce:transform-none
+          hero-reveal
           mt-12
           flex
           flex-wrap
@@ -200,7 +172,7 @@ const { theme } = useTheme()
 
 const basmalahImage = computed(() => {
   return theme.value === 'dark'
-  ? BasmalahLight
-  : BasmalahDark
+    ? BasmalahLight
+    : BasmalahDark
 })
 </script>
