@@ -1,38 +1,22 @@
+
 <template>
   <header
     ref="navbarRef"
-    class="
-      sticky
-      top-0
-      z-70
-      h-20
-    "
+    class="sticky top-0 z-70 h-20"
   >
     <div
       class="
-        absolute
-        left-1/2
-        top-0
-        w-full
-        max-w-7xl
-        -translate-x-1/2
-        border
-        border-border
-        bg-surface/80
-        backdrop-blur-sm
+        absolute left-1/2 top-0 w-full max-w-7xl
+        -translate-x-1/2 border border-border
+        bg-surface/80 backdrop-blur-sm
       "
     >
       <nav class="px-6 py-4">
         <div class="flex items-center justify-between">
           <a
             href="#home"
-            aria-label="Home"
-            class="
-              text-xl
-              font-bold
-              tracking-wide
-              text-foreground
-            "
+            :aria-label="t('nav.home')"
+            class="text-xl font-bold tracking-wide text-foreground"
           >
             <AppImage
               :src="siteConfig.logo"
@@ -63,7 +47,7 @@
                 ]"
                 @click="handleNavigation(item.href)"
               >
-                {{ item.label }}
+                {{ t(item.labelKey) }}
               </a>
             </li>
           </ul>
@@ -72,19 +56,31 @@
             <button
               type="button"
               class="
-                rounded-lg
-                border
-                border-border
-                p-2
-                text-foreground-secondary
-                transition
-                hover:bg-primary/20
-                hover:text-foreground
+                rounded-lg border border-border px-3 py-2
+                text-foreground-secondary transition
+                hover:bg-primary/20 hover:text-foreground
+              "
+              :aria-label="
+                locale === 'en'
+                  ? 'Switch to Arabic'
+                  : 'Switch to English'
+              "
+              @click="toggleLocale"
+            >
+              {{ locale === 'en' ? 'العربية' : 'English' }}
+            </button>
+
+            <button
+              type="button"
+              class="
+                rounded-lg border border-border p-2
+                text-foreground-secondary transition
+                hover:bg-primary/20 hover:text-foreground
               "
               :aria-label="
                 theme === 'dark'
-                  ? 'Switch to light mode'
-                  : 'Switch to dark mode'
+                  ? t('theme.switchToLight')
+                  : t('theme.switchToDark')
               "
               @click="toggleTheme"
             >
@@ -124,56 +120,32 @@
             <a
               href="#"
               class="
-                rounded-lg
-                bg-primary
-                px-4
-                py-2
-                font-medium
-                text-white
-                transition
+                rounded-lg bg-primary px-4 py-2
+                font-medium text-white transition
                 hover:bg-primary-hover
               "
-              @click="viewResume"
+              @click.prevent="viewResume"
             >
-              Resumé
+              {{ t('nav.resume') }}
             </a>
           </div>
 
           <button
             type="button"
             class="
-              rounded-lg
-              border
-              border-border
-              bg-primary/20
-              p-2
-              text-foreground-secondary
-              transition
-              hover:text-foreground
-              md:hidden
+              rounded-lg border border-border bg-primary/20 p-2
+              text-foreground-secondary transition
+              hover:text-foreground md:hidden
             "
             :aria-expanded="isMenuOpen"
-            aria-label="Toggle navigation menu"
+            :aria-label="t('nav.toggleMenu')"
             @click="isMenuOpen = !isMenuOpen"
           >
-            <span
-              class="
-                flex
-                h-5
-                w-5
-                flex-col
-                justify-between
-              "
-            >
+            <span class="flex h-5 w-5 flex-col justify-between">
               <span
                 class="
-                  h-0.5
-                  w-full
-                  origin-center
-                  rounded-full
-                  bg-current
-                  transition-transform
-                  duration-300
+                  h-0.5 w-full origin-center rounded-full
+                  bg-current transition-transform duration-300
                 "
                 :class="{
                   'translate-y-[9px] rotate-45': isMenuOpen,
@@ -181,28 +153,14 @@
               />
 
               <span
-                class="
-                  h-0.5
-                  w-full
-                  rounded-full
-                  bg-current
-                  transition-opacity
-                  duration-300
-                "
-                :class="{
-                  'opacity-0': isMenuOpen,
-                }"
+                class="h-0.5 w-full rounded-full bg-current transition-opacity duration-300"
+                :class="{ 'opacity-0': isMenuOpen }"
               />
 
               <span
                 class="
-                  h-0.5
-                  w-full
-                  origin-center
-                  rounded-full
-                  bg-current
-                  transition-transform
-                  duration-300
+                  h-0.5 w-full origin-center rounded-full
+                  bg-current transition-transform duration-300
                 "
                 :class="{
                   '-translate-y-[9px] -rotate-45': isMenuOpen,
@@ -224,12 +182,8 @@
         <div
           v-if="isMenuOpen"
           class="
-            overflow-hidden
-            border-t
-            border-border
-            px-6
-            py-4
-            md:hidden
+            overflow-hidden border-t border-border
+            px-6 py-4 md:hidden
           "
         >
           <ul class="space-y-2">
@@ -252,7 +206,7 @@
                 ]"
                 @click="handleNavigation(item.href)"
               >
-                {{ item.label }}
+                {{ t(item.labelKey) }}
               </a>
             </li>
 
@@ -260,20 +214,34 @@
               <button
                 type="button"
                 class="
-                  flex
-                  w-full
-                  items-center
-                  justify-center
-                  gap-2
-                  rounded-lg
-                  border
-                  border-border
-                  px-3
-                  py-3
-                  text-foreground-secondary
-                  transition
-                  hover:bg-primary/20
-                  hover:text-foreground
+                  w-full rounded-lg border border-border
+                  px-3 py-3 text-foreground-secondary
+                  transition hover:bg-primary/20 hover:text-foreground
+                "
+                :aria-label="
+                  locale === 'en'
+                    ? 'Switch to Arabic'
+                    : 'Switch to English'
+                "
+                @click="toggleLocale"
+              >
+                {{ locale === 'en' ? 'العربية' : 'English' }}
+              </button>
+            </li>
+
+            <li>
+              <button
+                type="button"
+                class="
+                  flex w-full items-center justify-center gap-2
+                  rounded-lg border border-border px-3 py-3
+                  text-foreground-secondary transition
+                  hover:bg-primary/20 hover:text-foreground
+                "
+                :aria-label="
+                  theme === 'dark'
+                    ? t('theme.switchToLight')
+                    : t('theme.switchToDark')
                 "
                 @click="toggleTheme"
               >
@@ -289,7 +257,7 @@
                 >
                   <circle cx="12" cy="12" r="4" />
                   <path
-                    d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                    d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l-1.41-1.41M17.66 6.34l1.41-1.41"
                   />
                 </svg>
 
@@ -309,7 +277,11 @@
                   />
                 </svg>
 
-                {{ theme === 'dark' ? 'Light Mode' : 'Dark Mode' }}
+                {{
+                  theme === 'dark'
+                    ? t('theme.lightMode')
+                    : t('theme.darkMode')
+                }}
               </button>
             </li>
 
@@ -317,21 +289,15 @@
               <a
                 :href="siteConfig.resume"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="
-                  block
-                  rounded-lg
-                  bg-primary
-                  px-3
-                  py-3
-                  text-center
-                  font-medium
-                  text-white
-                  transition
-                  hover:bg-primary-hover
+                  block rounded-lg bg-primary px-3 py-3
+                  text-center font-medium text-white
+                  transition hover:bg-primary-hover
                 "
                 @click="isMenuOpen = false"
               >
-                Resumé
+                {{ t('nav.resume') }}
               </a>
             </li>
           </ul>
@@ -345,12 +311,14 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 
 import AppImage from '@/components/common/AppImage.vue'
+import { useLocale } from '@/composables/useLocale'
 import { useTheme } from '@/composables/useTheme'
-import { siteConfig } from '@/config/site.config'
 import { navItems } from '@/config/nav.config'
+import { siteConfig } from '@/config/site.config'
 import { dialogBus } from '@/dialogs/core/dialog-bus'
 
 const { theme, toggleTheme } = useTheme()
+const { locale, t, toggleLocale } = useLocale()
 
 const isMenuOpen = ref(false)
 const activeSection = ref('home')
