@@ -1,3 +1,4 @@
+
 <template>
   <section
     id="contact"
@@ -13,7 +14,7 @@
             md:text-4xl
           "
         >
-          Contact
+          {{ t('contact.title') }}
         </h2>
 
         <p
@@ -26,8 +27,7 @@
             text-foreground-secondary
           "
         >
-          Have an opportunity or a question?
-          I'd be happy to hear from you.
+          {{ t('contact.description') }}
         </p>
 
         <a
@@ -51,11 +51,11 @@
             hover:bg-surface-muted
           "
         >
-          Get in touch
+          {{ t('contact.button') }}
 
           <SocialIcon
             :icon="socialLinks.email.icon"
-            :label="socialLinks.email.label"
+            :label="t('contact.emailLabel')"
           />
         </a>
 
@@ -65,6 +65,7 @@
             text-sm
             text-foreground-muted
           "
+          dir="ltr"
         >
           {{ socialLinks.email.url.replace('mailto:', '') }}
         </p>
@@ -129,7 +130,11 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 import TheContainer from '@/components/common/TheContainer.vue'
 import SocialIcon from '@/components/common/SocialIcon.vue'
 import { socialLinks } from '@/config/social.config'
+
+const { t } = useI18n({ useScope: 'global' })
 </script>
