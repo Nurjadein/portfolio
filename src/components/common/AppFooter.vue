@@ -14,8 +14,10 @@
         "
       >
         <p class="text-foreground">
-          © {{ new Date().getFullYear() }} {{ heroData.name }}.
-          All rights reserved.
+          <span dir="ltr">
+            © {{ new Date().getFullYear() }} {{ t('hero.name') }}.
+          </span>
+          {{ t('footer.rightsReserved') }}
         </p>
 
         <div
@@ -80,8 +82,12 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 import TheContainer from '@/components/common/TheContainer.vue'
+import SocialIcon from '@/components/common/SocialIcon.vue'
 import { heroData } from '@/config/hero.config'
 import { socialLinks } from '@/config/social.config'
-import SocialIcon from '@/components/common/SocialIcon.vue'
+
+const { t } = useI18n({ useScope: 'global' })
 </script>
