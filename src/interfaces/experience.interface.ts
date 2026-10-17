@@ -1,4 +1,6 @@
+
 export interface IExperienceProject {
+  id: string
   name: string
   description: string
   status?: string
@@ -6,7 +8,9 @@ export interface IExperienceProject {
   technologies?: string[]
   url?: string
 }
+
 export interface IExperience {
+  id: string
   company: string
   role: string
   startDate: string
