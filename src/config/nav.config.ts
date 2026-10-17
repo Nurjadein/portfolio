@@ -1,24 +1,24 @@
-import type { INavItems } from "@/interfaces/nav.interface";
+import type { INavItems } from '@/interfaces/nav.interface'
 
 export const navItems: INavItems[] = [
   {
-    label: 'Home',
+    labelKey: 'nav.home',
     href: '#home',
   },
   {
-    label: 'About',
+    labelKey: 'nav.about',
     href: '#about',
   },
   {
-    label: 'Skills',
+    labelKey: 'nav.skills',
     href: '#skills',
   },
   {
-    label: 'Experience',
+    labelKey: 'nav.experience',
     href: '#experience',
   },
   {
-    label: 'Contact',
+    labelKey: 'nav.contact',
     href: '#contact',
   },
-];
+]
