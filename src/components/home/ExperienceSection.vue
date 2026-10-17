@@ -1,3 +1,4 @@
+
 <template>
   <section
     id="experience"
@@ -13,7 +14,7 @@
             md:text-4xl
           "
         >
-          Experience
+          {{ t('experience.title') }}
         </h2>
 
         <p
@@ -26,7 +27,7 @@
             text-foreground-secondary
           "
         >
-          {{ intro }}
+          {{ t('experience.intro') }}
         </p>
       </div>
 
@@ -47,7 +48,7 @@
       >
         <article
           v-for="experience in experiences"
-          :key="`${experience.company}-${experience.role}`"
+          :key="experience.id"
           class="
             relative
             pl-10
@@ -78,17 +79,14 @@
               md:gap-12
             "
           >
-            <div
-              class="
-                md:text-right
-              "
-            >
+            <div class="md:text-right">
               <p
                 class="
                   text-sm
                   font-medium
                   text-foreground-secondary
                 "
+                dir="ltr"
               >
                 {{ experience.startDate }} —
                 {{ experience.endDate }}
@@ -102,7 +100,7 @@
                   text-foreground
                 "
               >
-                {{ experience.role }}
+                {{ t(`experience.entries.${experience.id}.role`) }}
               </h3>
 
               <p
@@ -112,9 +110,9 @@
                   text-foreground-secondary
                 "
               >
-                {{ experience.company }}
+                <span dir="ltr">{{ experience.company }}</span>
                 <span aria-hidden="true"> · </span>
-                {{ experience.location }}
+                {{ t(`experience.entries.${experience.id}.location`) }}
               </p>
 
               <p
@@ -126,7 +124,7 @@
                   text-foreground-secondary
                 "
               >
-                {{ experience.description }}
+                {{ t(`experience.entries.${experience.id}.description`) }}
               </p>
             </div>
 
@@ -137,7 +135,7 @@
               >
                 <article
                   v-for="project in experience.projects"
-                  :key="project.name"
+                  :key="project.id"
                   class="
                     rounded-2xl
                     border
@@ -164,6 +162,7 @@
                           font-semibold
                           text-foreground
                         "
+                        dir="ltr"
                       >
                         {{ project.name }}
                       </h4>
@@ -176,7 +175,11 @@
                           text-foreground-muted
                         "
                       >
-                        {{ project.status }}
+                        {{
+                          t(
+                            `experience.entries.${experience.id}.projects.${project.id}.status`,
+                          )
+                        }}
                       </p>
                     </div>
 
@@ -194,7 +197,7 @@
                         hover:text-primary
                       "
                     >
-                      View project
+                      {{ t('experience.viewProject') }}
                       <span aria-hidden="true">↗</span>
                     </a>
                   </div>
@@ -207,7 +210,11 @@
                       text-foreground-secondary
                     "
                   >
-                    {{ project.description }}
+                    {{
+                      t(
+                        `experience.entries.${experience.id}.projects.${project.id}.description`,
+                      )
+                    }}
                   </p>
 
                   <div
@@ -221,18 +228,13 @@
                         text-foreground-secondary
                       "
                     >
-                      Contributions
+                      {{ t('experience.contributions') }}
                     </p>
 
-                    <ul
-                      class="
-                        mt-3
-                        space-y-3
-                      "
-                    >
+                    <ul class="mt-3 space-y-3">
                       <li
-                        v-for="contribution in project.contributions"
-                        :key="contribution"
+                        v-for="(_, index) in project.contributions"
+                        :key="index"
                         class="
                           flex
                           gap-3
@@ -253,7 +255,13 @@
                           aria-hidden="true"
                         />
 
-                        <span>{{ contribution }}</span>
+                        <span>
+                          {{
+                            t(
+                              `experience.entries.${experience.id}.projects.${project.id}.contributions.${index}`,
+                            )
+                          }}
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -270,6 +278,7 @@
                     <span
                       v-for="technology in project.technologies"
                       :key="technology"
+                      dir="ltr"
                       class="
                         rounded-full
                         border
@@ -305,18 +314,13 @@
                     text-foreground-secondary
                   "
                 >
-                  Contributions
+                  {{ t('experience.contributions') }}
                 </p>
 
-                <ul
-                  class="
-                    mt-4
-                    space-y-3
-                  "
-                >
+                <ul class="mt-4 space-y-3">
                   <li
-                    v-for="contribution in experience.contributions"
-                    :key="contribution"
+                    v-for="(_, index) in experience.contributions"
+                    :key="index"
                     class="
                       flex
                       gap-3
@@ -337,7 +341,13 @@
                       aria-hidden="true"
                     />
 
-                    <span>{{ contribution }}</span>
+                    <span>
+                      {{
+                        t(
+                          `experience.entries.${experience.id}.contributions.${index}`,
+                        )
+                      }}
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -350,6 +360,10 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 import TheContainer from '@/components/common/TheContainer.vue'
-import { experiences, intro } from '@/config/experience.config'
+import { experiences } from '@/config/experience.config'
+
+const { t } = useI18n({ useScope: 'global' })
 </script>
