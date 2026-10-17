@@ -110,7 +110,7 @@
                   text-foreground-secondary
                 "
               >
-                <span dir="ltr">{{ experience.company }}</span>
+                <span dir="ltr">{{experience.projects?.length ?  experience.company : t(`experience.entries.${experience.id}.companyName`) }}</span>
                 <span aria-hidden="true"> · </span>
                 {{ t(`experience.entries.${experience.id}.location`) }}
               </p>
