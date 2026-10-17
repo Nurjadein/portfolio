@@ -1,3 +1,4 @@
+
 import type { IExperience } from '@/interfaces/experience.interface'
 
 export const intro: string =
@@ -5,6 +6,7 @@ export const intro: string =
 
 export const experiences: IExperience[] = [
   {
+    id: 'itsmarawi-developer-2025',
     company: 'ITSMarawi',
     role: 'Developer',
     startDate: 'Jul 2025',
@@ -14,6 +16,7 @@ export const experiences: IExperience[] = [
       'Collaborated with a frontend development team on a transportation-focused subsystem of the e-SeQR platform.',
     projects: [
       {
+        id: 'eseqr-transportation',
         name: 'e-SeQR Transportation',
         description:
           `A transportation subsystem designed to support vehicle and terminal workflows
@@ -40,6 +43,7 @@ export const experiences: IExperience[] = [
   },
 
   {
+    id: 'dunkin-team-member',
     company: '(DUNKIN) Shahia Food Limited Company',
     role: 'Team Member',
     startDate: 'Sep 2023',
@@ -56,6 +60,7 @@ export const experiences: IExperience[] = [
   },
 
   {
+    id: 'itsmarawi-associate-engineer',
     company: 'ITSMarawi',
     role: 'Associate Software Engineer',
     startDate: 'Sep 2021',
@@ -65,6 +70,7 @@ export const experiences: IExperience[] = [
       'Collaborated with a software development team on internal and community-focused applications across frontend and backend development.',
     projects: [
       {
+        id: 'human-resources-system',
         name: 'Human Resources System (HRS)',
         description:
           'An internal human resources application used within the organization for local office operations.',
@@ -86,6 +92,7 @@ export const experiences: IExperience[] = [
         ],
       },
       {
+        id: 'seeapp-ranao',
         name: 'SeeApp Ranao',
         description:
           'A vaccination management and monitoring system developed during the COVID-19 pandemic, supporting online booking, registration, vaccination records, vaccination ID processing, and QR-based monitoring workflows.',
@@ -113,6 +120,7 @@ export const experiences: IExperience[] = [
   },
 
   {
+    id: 'itsmarawi-intern',
     company: 'ITSMarawi',
     role: 'Developer Intern',
     startDate: 'May 2021',
@@ -122,6 +130,7 @@ export const experiences: IExperience[] = [
       'Worked as part of a development team on Kandori, an online restaurant portal developed to help local MSMEs establish online ordering capabilities.',
     projects: [
       {
+        id: 'kandori',
         name: 'Kandori',
         description:
           'An online restaurant portal developed to help local MSMEs provide online ordering services while reducing reliance on high-commission food delivery platforms.',
