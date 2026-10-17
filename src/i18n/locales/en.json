@@ -1,0 +1,147 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "contact": "Contact",
+    "resume": "Résumé",
+    "toggleMenu": "Toggle navigation menu"
+  },
+  "theme": {
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode"
+  },
+  "hero": {
+    "greeting": "Hello, I am",
+    "title": "Software Developer",
+    "name":"Nurjadein Abdulmorid",
+    "description": "Building scalable and maintainable web applications with modern JavaScript and TypeScript technologies.",
+    "contactButton": "Contact Me",
+    "availability": "Available for Remote Opportunities",
+    "experienceButton": "View Experience",
+    "basmalahAlt": "Bismillah"
+  },
+    "about": {
+    "title": "About Me",
+    "description": "Software developer with nearly 3 years of experience building web applications using Vue, TypeScript, NestJS, and MySQL.\n\nGraduated with a BS in Information Technology major in Database Systems from Mindanao State University Main Campus, Marawi City, Philippines. Experienced in developing maintainable frontend and backend solutions, API integration, state management, and database-driven applications.\n\nFocused on building scalable, production-ready systems using industry-standard practices, with a strong focus on clean architecture, maintainability, and long-term growth.",
+    "highlights": {
+        "experience": "Experience",
+        "degree": "Degree",
+        "primaryStack": "Primary Stack",
+        "backend": "Backend"
+    },
+    "values": {
+        "experience": "~3 Years",
+        "degree": "BSIT (Database Systems)",
+        "primaryStack": "Vue + TypeScript",
+        "backend": "NestJS + MySQL"
+    }
+   },
+   
+    "skills": {
+    "title": "Skills",
+    "categories": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "database": "Database",
+        "tools": "Tools"
+     }
+    },
+    
+    "experience": {
+        "title": "Experience",
+        "intro": "My professional experience and the projects I've contributed to throughout my career.",
+        "viewProject": "View project",
+        "contributions": "Contributions",
+        
+    "entries": {
+    "itsmarawi-developer-2025": {
+        "role": "Developer",
+        "location": "Marawi City",
+        "description": "Collaborated with a frontend development team on a transportation-focused subsystem of the e-SeQR platform.",
+        "projects": {
+        "eseqr-transportation": {
+            "description": "A transportation subsystem designed to support vehicle and terminal workflows through QR-based vehicle scanning, trip recording, and vehicle credit/load management.",
+            "status": "Development project · Not brought to production",
+            "contributions": [
+            "Adapted existing Vue and Quasar components and functionality from the main e-SeQR system.",
+            "Contributed to frontend development and modifications using TypeScript and Pinia.",
+            "Worked on vehicle and terminal workflows, including QR-based scanning and trip-related functionality.",
+            "Contributed to the vehicle credit/load functionality used for trip credit deductions after scans.",
+            "Fixed frontend bugs and issues during development."
+            ]
+        }
+        }
+    },
+    "dunkin-team-member": {
+        "role": "Team Member",
+        "location": "KSA",
+        "description": "Worked across multiple store operations in a fast-paced restaurant environment.",
+        "contributions": [
+        "Prepared beverages and served food and donuts.",
+        "Handled cashiering and customer service.",
+        "Performed stock counting and inventory-related tasks.",
+        "Maintained store cleanliness and supported daily store operations."
+        ]
+    },
+    "itsmarawi-associate-engineer": {
+        "role": "Associate Software Engineer",
+        "location": "Marawi City",
+        "description": "Collaborated with a software development team on internal and community-focused applications across frontend and backend development.",
+        "projects": {
+        "human-resources-system": {
+            "description": "An internal human resources application used within the organization for local office operations.",
+            "status": "Internal application · Private",
+            "contributions": [
+            "Contributed to frontend development using Vue, Quasar, Vuex, and TypeScript.",
+            "Worked within a NestJS-based microservices environment.",
+            "Contributed to debugging and testing, including temporary use of Cypress."
+            ]
+        },
+        "seeapp-ranao": {
+            "description": "A vaccination management and monitoring system developed during the COVID-19 pandemic, supporting online booking, registration, vaccination records, vaccination ID processing, and QR-based monitoring workflows.",
+            "status": "Public project",
+            "contributions": [
+            "Contributed to frontend and backend development as part of the development team.",
+            "Worked within the existing Quasar/Vue and NestJS application stack.",
+            "Worked with TypeScript and Vuex across the application.",
+            "Used OpenAPI-generated API functionality to communicate between the frontend and backend.",
+            "Collaborated using Git and GitHub throughout development."
+            ]
+        }
+        }
+    },
+    "itsmarawi-intern": {
+        "role": "Developer Intern",
+        "location": "Marawi City",
+        "description": "Worked as part of a development team on Kandori, an online restaurant portal developed to help local MSMEs establish online ordering capabilities.",
+        "projects": {
+        "kandori": {
+            "description": "An online restaurant portal developed to help local MSMEs provide online ordering services while reducing reliance on high-commission food delivery platforms.",
+            "contributions": [
+            "Contributed to frontend and backend development as part of the development team.",
+            "Worked with Quasar/Vue, TypeScript, Vuex, and NestJS.",
+            "Used OpenAPI-based API functionality during application development.",
+            "Used Git and GitHub for version control and team collaboration.",
+            "Gained practical experience working within an Agile-oriented software development workflow."
+            ]
+        }
+        }
+    }
+    }
+
+    },
+    "contact": {
+    "title": "Contact",
+    "description": "Have an opportunity or a question? I'd be happy to hear from you.",
+    "button": "Get in touch",
+    "emailLabel": "Email"
+    },
+    "footer": {
+        "rightsReserved": "All rights reserved."
+    }
+
+}
