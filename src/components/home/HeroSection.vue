@@ -79,27 +79,6 @@
       >
         {{ t('hero.description') }}
       </p>
-
-      <p
-        class="
-          hero-reveal
-          mt-5
-          inline-flex
-          items-center
-          rounded-full
-          border
-          border-primary/30
-          bg-primary/10
-          px-4
-          py-2
-          text-sm
-          text-foreground-secondary
-        "
-        style="animation-delay: 600ms"
-      >
-        {{ t('hero.availability') }}
-      </p>
-
       <div
         class="
           hero-reveal
