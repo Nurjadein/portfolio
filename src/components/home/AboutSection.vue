@@ -1,3 +1,4 @@
+
 <template>
   <section
     id="about"
@@ -13,7 +14,7 @@
             md:text-4xl
           "
         >
-          {{ aboutData.title }}
+          {{ t('about.title') }}
         </h2>
 
         <p
@@ -27,7 +28,7 @@
             text-foreground-secondary
           "
         >
-          {{ aboutData.description }}
+          {{ t('about.description') }}
         </p>
       </div>
 
@@ -40,8 +41,8 @@
         "
       >
         <div
-          v-for="item in aboutData.highlights"
-          :key="item.label"
+          v-for="item in highlightItems"
+          :key="item.labelKey"
           class="
             rounded-2xl
             border
@@ -52,7 +53,7 @@
           "
         >
           <p class="text-sm text-foreground-muted">
-            {{ item.label }}
+            {{ t(item.labelKey) }}
           </p>
 
           <p
@@ -63,7 +64,7 @@
               text-foreground
             "
           >
-            {{ item.value }}
+            {{ t(item.valueKey) }}
           </p>
         </div>
       </div>
@@ -72,6 +73,28 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 import TheContainer from '@/components/common/TheContainer.vue'
-import { aboutData } from '@/config/about.config'
+
+const { t } = useI18n({ useScope: 'global' })
+
+const highlightItems = [
+  {
+    labelKey: 'about.highlights.experience',
+    valueKey: 'about.values.experience',
+  },
+  {
+    labelKey: 'about.highlights.degree',
+    valueKey: 'about.values.degree',
+  },
+  {
+    labelKey: 'about.highlights.primaryStack',
+    valueKey: 'about.values.primaryStack',
+  },
+  {
+    labelKey: 'about.highlights.backend',
+    valueKey: 'about.values.backend',
+  },
+] as const
 </script>
