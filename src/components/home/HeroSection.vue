@@ -1,3 +1,4 @@
+
 <template>
   <section
     id="home"
@@ -16,7 +17,7 @@
       >
         <AppImage
           :src="basmalahImage"
-          alt="Bismillah"
+          :alt="t('hero.basmalahAlt')"
           container-class="mb-8"
           image-class="h-16 w-auto opacity-90 sm:h-20 md:h-22 lg:h-24"
           loading="eager"
@@ -28,7 +29,7 @@
         class="hero-reveal text-lg text-foreground-secondary"
         style="animation-delay: 250ms"
       >
-        {{ heroData.greeting }}
+        {{ t('hero.greeting') }}
       </p>
 
       <h1
@@ -49,7 +50,7 @@
         "
         style="animation-delay: 350ms"
       >
-        {{ heroData.name }}
+        <span dir="ltr">{{ t('hero.name') }}</span>
       </h1>
 
       <p
@@ -63,7 +64,7 @@
         "
         style="animation-delay: 450ms"
       >
-        {{ heroData.title }}
+        {{ t('hero.title') }}
       </p>
 
       <p
@@ -76,7 +77,27 @@
         "
         style="animation-delay: 550ms"
       >
-        {{ heroData.description }}
+        {{ t('hero.description') }}
+      </p>
+
+      <p
+        class="
+          hero-reveal
+          mt-5
+          inline-flex
+          items-center
+          rounded-full
+          border
+          border-primary/30
+          bg-primary/10
+          px-4
+          py-2
+          text-sm
+          text-foreground-secondary
+        "
+        style="animation-delay: 600ms"
+      >
+        {{ t('hero.availability') }}
       </p>
 
       <div
@@ -103,7 +124,7 @@
             hover:bg-primary-hover
           "
         >
-          {{ heroData.experienceButtonText }}
+          {{ t('hero.experienceButton') }}
         </a>
 
         <a
@@ -121,7 +142,7 @@
             hover:text-primary
           "
         >
-          {{ heroData.contactButtonText }}
+          {{ t('hero.contactButton') }}
         </a>
       </div>
 
@@ -139,6 +160,7 @@
         <span
           v-for="technology in heroData.technologies"
           :key="technology"
+          dir="ltr"
           class="
             rounded-full
             border
@@ -160,6 +182,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import AppImage from '@/components/common/AppImage.vue'
 import TheContainer from '@/components/common/TheContainer.vue'
@@ -168,6 +191,7 @@ import BasmalahLight from '@/assets/images/Basmalah-light.png'
 import { heroData } from '@/config/hero.config'
 import { useTheme } from '@/composables/useTheme'
 
+const { t } = useI18n({ useScope: 'global' })
 const { theme } = useTheme()
 
 const basmalahImage = computed(() => {
