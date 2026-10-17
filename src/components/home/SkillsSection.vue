@@ -1,3 +1,4 @@
+
 <template>
   <section
     id="skills"
@@ -13,7 +14,7 @@
             md:text-4xl
           "
         >
-          {{ skillsData.title }}
+          {{ t('skills.title') }}
         </h2>
       </div>
 
@@ -26,8 +27,8 @@
         "
       >
         <div
-          v-for="category in skillsData.categories"
-          :key="category.title"
+          v-for="category in skillCategories"
+          :key="category.key"
           class="
             rounded-2xl
             border
@@ -44,7 +45,7 @@
               text-foreground
             "
           >
-            {{ category.title }}
+            {{ t(category.titleKey) }}
           </h3>
 
           <div
@@ -58,6 +59,7 @@
             <span
               v-for="skill in category.skills"
               :key="skill"
+              dir="ltr"
               class="
                 rounded-full
                 border
@@ -79,6 +81,23 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 import TheContainer from '@/components/common/TheContainer.vue'
 import { skillsData } from '@/config/skills.config'
+
+const { t } = useI18n({ useScope: 'global' })
+
+const categoryKeys = {
+  Frontend: 'frontend',
+  Backend: 'backend',
+  Database: 'database',
+  Tools: 'tools',
+} as const
+
+const skillCategories = skillsData.categories.map((category) => ({
+  ...category,
+  key: categoryKeys[category.title as keyof typeof categoryKeys],
+  titleKey: `skills.categories.${categoryKeys[category.title as keyof typeof categoryKeys]}`,
+}))
 </script>
