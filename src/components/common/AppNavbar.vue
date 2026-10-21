@@ -1,4 +1,3 @@
-
 <template>
   <header
     ref="navbarRef"
@@ -53,22 +52,7 @@
           </ul>
 
           <div class="hidden items-center gap-3 md:flex">
-            <button
-              type="button"
-              class="
-                rounded-lg border border-border px-3 py-2
-                text-foreground-secondary transition
-                hover:bg-primary/20 hover:text-foreground
-              "
-              :aria-label="
-                locale === 'en'
-                  ? 'Switch to Arabic'
-                  : 'Switch to English'
-              "
-              @click="toggleLocale"
-            >
-              {{ locale === 'en' ? 'العربية' : 'English' }}
-            </button>
+            <LanguageSwitcher />
 
             <button
               type="button"
@@ -211,22 +195,7 @@
             </li>
 
             <li>
-              <button
-                type="button"
-                class="
-                  w-full rounded-lg border border-border
-                  px-3 py-3 text-foreground-secondary
-                  transition hover:bg-primary/20 hover:text-foreground
-                "
-                :aria-label="
-                  locale === 'en'
-                    ? 'Switch to Arabic'
-                    : 'Switch to English'
-                "
-                @click="toggleLocale"
-              >
-                {{ locale === 'en' ? 'العربية' : 'English' }}
-              </button>
+              <LanguageSwitcher full-width />
             </li>
 
             <li>
@@ -311,14 +280,15 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 
 import AppImage from '@/components/common/AppImage.vue'
+import LanguageSwitcher from '@/components/common/LanguageSwitcher.vue'
 import { useLocale } from '@/composables/useLocale'
 import { useTheme } from '@/composables/useTheme'
 import { navItems } from '@/config/nav.config'
 import { siteConfig } from '@/config/site.config'
 import { dialogBus } from '@/dialogs/core/dialog-bus'
 
+const { t } = useLocale()
 const { theme, toggleTheme } = useTheme()
-const { locale, t, toggleLocale } = useLocale()
 
 const isMenuOpen = ref(false)
 const activeSection = ref('home')
