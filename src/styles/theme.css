@@ -1,6 +1,10 @@
-:root {
+
+:root,
+:root[data-color-theme='violet'] {
+  color-scheme: light;
+
   --color-primary: #7c3aed;
-  --color-primary-hover: #8b5cf6;
+  --color-primary-hover: #6d28d9;
 
   --color-background: #f8fafc;
   --color-surface: #ffffff;
@@ -16,9 +20,12 @@
   --hero-name-end: #4f46e5;
 }
 
-.dark {
-  --color-primary: #8b5cf6;
-  --color-primary-hover: #a78bfa;
+:root.dark,
+:root.dark[data-color-theme='violet'] {
+  color-scheme: dark;
+
+  --color-primary: #a78bfa;
+  --color-primary-hover: #c4b5fd;
 
   --color-background: #020617;
   --color-surface: #0f172a;
@@ -28,10 +35,174 @@
   --color-foreground-secondary: #cbd5e1;
   --color-foreground-muted: #94a3b8;
 
-  --color-border: #1e293b;
+  --color-border: #334155;
 
   --hero-name-start: #a78bfa;
   --hero-name-end: #6366f1;
+}
+
+/* Navy */
+:root[data-color-theme='navy'] {
+  color-scheme: light;
+
+  --color-primary: #1d4ed8;
+  --color-primary-hover: #1e40af;
+
+  --color-background: #f1f5f9;
+  --color-surface: #ffffff;
+  --color-surface-muted: #e2e8f0;
+
+  --color-foreground: #172554;
+  --color-foreground-secondary: #334155;
+  --color-foreground-muted: #64748b;
+
+  --color-border: #cbd5e1;
+
+  --hero-name-start: #1d4ed8;
+  --hero-name-end: #0891b2;
+}
+
+:root.dark[data-color-theme='navy'] {
+  color-scheme: dark;
+
+  --color-primary: #93c5fd;
+  --color-primary-hover: #bfdbfe;
+
+  --color-background: #081426;
+  --color-surface: #10213a;
+  --color-surface-muted: #1e3452;
+
+  --color-foreground: #eff6ff;
+  --color-foreground-secondary: #cbd5e1;
+  --color-foreground-muted: #94a3b8;
+
+  --color-border: #30445f;
+
+  --hero-name-start: #93c5fd;
+  --hero-name-end: #22d3ee;
+}
+
+/* Emerald */
+:root[data-color-theme='emerald'] {
+  color-scheme: light;
+
+  --color-primary: #047857;
+  --color-primary-hover: #065f46;
+
+  --color-background: #f0fdf4;
+  --color-surface: #ffffff;
+  --color-surface-muted: #dcfce7;
+
+  --color-foreground: #14532d;
+  --color-foreground-secondary: #166534;
+  --color-foreground-muted: #4d7c5b;
+
+  --color-border: #bbf7d0;
+
+  --hero-name-start: #047857;
+  --hero-name-end: #16a34a;
+}
+
+:root.dark[data-color-theme='emerald'] {
+  color-scheme: dark;
+
+  --color-primary: #6ee7b7;
+  --color-primary-hover: #a7f3d0;
+
+  --color-background: #061a13;
+  --color-surface: #0d2b20;
+  --color-surface-muted: #164532;
+
+  --color-foreground: #ecfdf5;
+  --color-foreground-secondary: #bbf7d0;
+  --color-foreground-muted: #86bda0;
+
+  --color-border: #285640;
+
+  --hero-name-start: #6ee7b7;
+  --hero-name-end: #4ade80;
+}
+
+/* Ocean */
+:root[data-color-theme='ocean'] {
+  color-scheme: light;
+
+  --color-primary: #0e7490;
+  --color-primary-hover: #155e75;
+
+  --color-background: #ecfeff;
+  --color-surface: #ffffff;
+  --color-surface-muted: #cffafe;
+
+  --color-foreground: #164e63;
+  --color-foreground-secondary: #155e75;
+  --color-foreground-muted: #527d89;
+
+  --color-border: #a5f3fc;
+
+  --hero-name-start: #0891b2;
+  --hero-name-end: #2563eb;
+}
+
+:root.dark[data-color-theme='ocean'] {
+  color-scheme: dark;
+
+  --color-primary: #67e8f9;
+  --color-primary-hover: #a5f3fc;
+
+  --color-background: #071820;
+  --color-surface: #0d2733;
+  --color-surface-muted: #16404f;
+
+  --color-foreground: #ecfeff;
+  --color-foreground-secondary: #bae6fd;
+  --color-foreground-muted: #8dbac7;
+
+  --color-border: #28505e;
+
+  --hero-name-start: #67e8f9;
+  --hero-name-end: #60a5fa;
+}
+
+/* Amber */
+:root[data-color-theme='amber'] {
+  color-scheme: light;
+
+  --color-primary: #b45309;
+  --color-primary-hover: #92400e;
+
+  --color-background: #fffbeb;
+  --color-surface: #ffffff;
+  --color-surface-muted: #fef3c7;
+
+  --color-foreground: #451a03;
+  --color-foreground-secondary: #78350f;
+  --color-foreground-muted: #92734d;
+
+  --color-border: #fde68a;
+
+  --hero-name-start: #d97706;
+  --hero-name-end: #ea580c;
+}
+
+:root.dark[data-color-theme='amber'] {
+  color-scheme: dark;
+
+  --color-primary: #fcd34d;
+  --color-primary-hover: #fde68a;
+
+  --color-background: #1c1408;
+  --color-surface: #2b2010;
+  --color-surface-muted: #443018;
+
+  --color-foreground: #fffbeb;
+  --color-foreground-secondary: #fde68a;
+  --color-foreground-muted: #d6bd86;
+
+  --color-border: #594323;
+
+  --hero-name-start: #fcd34d;
+  --hero-name-end: #fb923c;
 }
 
 @theme inline {
