@@ -7,8 +7,17 @@
     <div
       class="
         absolute left-1/2 top-0 w-full max-w-7xl
-        -translate-x-1/2 border border-border
-        bg-surface/80 backdrop-blur-sm
+        -translate-x-1/2 border-b border-transparent
+        bg-surface/70 shadow-none
+        backdrop-blur-[10px]
+        transition-[backdrop-filter,border-color]
+        duration-300 ease-in-out
+        md:bg-transparent
+      "
+      :class="
+        isScrolled
+          ? 'border-border/50'
+          : 'border-transparent'
       "
     >
       <nav class="px-6 py-4">
@@ -29,10 +38,7 @@
           </a>
 
           <ul class="hidden items-center gap-8 md:flex">
-            <li
-              v-for="item in navItems"
-              :key="item.href"
-            >
+            <li v-for="item in navItems" :key="item.href">
               <a
                 :href="item.href"
                 :aria-current="
@@ -47,68 +53,39 @@
                     : 'text-foreground-secondary hover:bg-primary/20 hover:text-foreground',
                 ]"
                 @click="handleNavigation(item.href)"
-              >
-                {{ t(item.labelKey) }}
-              </a>
+              >{{ t(item.labelKey) }}</a>
             </li>
           </ul>
 
           <div class="hidden items-center gap-3 md:flex">
             <LanguageSwitcher />
-
             <ThemeSwitcher />
-
             <a
               href="#"
-              class="
-                rounded-lg bg-primary px-4 py-2
-                font-medium text-white transition
-                hover:bg-primary-hover
-              "
+              class="rounded-lg bg-primary px-4 py-2 font-medium text-white transition hover:bg-primary-hover"
               @click.prevent="viewResume"
-            >
-              {{ t('nav.resume') }}
-            </a>
+            >{{ t('nav.resume') }}</a>
           </div>
 
           <button
             type="button"
-            class="
-              rounded-lg border border-border bg-primary/20 p-2
-              text-foreground-secondary transition
-              hover:text-foreground md:hidden
-            "
+            class="rounded-lg border border-border bg-primary/20 p-2 text-foreground-secondary transition hover:text-foreground md:hidden"
             :aria-expanded="isMenuOpen"
             :aria-label="t('nav.toggleMenu')"
             @click="isMenuOpen = !isMenuOpen"
           >
             <span class="flex h-5 w-5 flex-col justify-between">
               <span
-                class="
-                  h-0.5 w-full origin-center rounded-full
-                  bg-current transition-transform duration-300
-                "
-                :class="{
-                  'translate-y-[9px] rotate-45': isMenuOpen,
-                }"
+                class="h-0.5 w-full origin-center rounded-full bg-current transition-transform duration-300"
+                :class="{ 'translate-y-[9px] rotate-45': isMenuOpen }"
               />
-
               <span
-                class="
-                  h-0.5 w-full rounded-full bg-current
-                  transition-opacity duration-300
-                "
+                class="h-0.5 w-full rounded-full bg-current transition-opacity duration-300"
                 :class="{ 'opacity-0': isMenuOpen }"
               />
-
               <span
-                class="
-                  h-0.5 w-full origin-center rounded-full
-                  bg-current transition-transform duration-300
-                "
-                :class="{
-                  '-translate-y-[9px] -rotate-45': isMenuOpen,
-                }"
+                class="h-0.5 w-full origin-center rounded-full bg-current transition-transform duration-300"
+                :class="{ '-translate-y-[9px] -rotate-45': isMenuOpen }"
               />
             </span>
           </button>
@@ -127,14 +104,13 @@
           v-if="isMenuOpen"
           class="
             max-h-[calc(100dvh-5rem)] overflow-y-auto
-            border-t border-border px-6 py-4 md:hidden
+            border-t border-border px-6 py-4
+            backdrop-blur-xl
+            md:hidden
           "
         >
           <ul class="space-y-2">
-            <li
-              v-for="item in navItems"
-              :key="item.href"
-            >
+            <li v-for="item in navItems" :key="item.href">
               <a
                 :href="item.href"
                 :aria-current="
@@ -149,9 +125,7 @@
                     : 'text-foreground-secondary hover:bg-primary/20 hover:text-foreground',
                 ]"
                 @click="handleNavigation(item.href)"
-              >
-                {{ t(item.labelKey) }}
-              </a>
+              >{{ t(item.labelKey) }}</a>
             </li>
 
             <li>
@@ -167,15 +141,9 @@
                 :href="siteConfig.resume"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="
-                  block rounded-lg bg-primary px-3 py-3
-                  text-center font-medium text-white
-                  transition hover:bg-primary-hover
-                "
+                class="block rounded-lg bg-primary px-3 py-3 text-center font-medium text-white transition hover:bg-primary-hover"
                 @click="isMenuOpen = false"
-              >
-                {{ t('nav.resume') }}
-              </a>
+              >{{ t('nav.resume') }}</a>
             </li>
           </ul>
         </div>
@@ -198,13 +166,20 @@ import { dialogBus } from '@/dialogs/core/dialog-bus'
 const { t } = useLocale()
 
 const isMenuOpen = ref(false)
+const isScrolled = ref(false)
 const activeSection = ref('home')
 const navbarRef = ref<HTMLElement | null>(null)
 
 let observer: IntersectionObserver | null = null
 let resizeObserver: ResizeObserver | null = null
 
+const SCROLL_THRESHOLD = 8
+
 const getSectionId = (href: string) => href.slice(1)
+
+const updateScrollState = () => {
+  isScrolled.value = window.scrollY > SCROLL_THRESHOLD
+}
 
 const handleNavigation = (href: string) => {
   activeSection.value = getSectionId(href)
@@ -246,6 +221,12 @@ const createObserver = () => {
 }
 
 onMounted(() => {
+  updateScrollState()
+
+  window.addEventListener('scroll', updateScrollState, {
+    passive: true,
+  })
+
   createObserver()
 
   if (navbarRef.value) {
@@ -258,6 +239,8 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  window.removeEventListener('scroll', updateScrollState)
+
   observer?.disconnect()
   resizeObserver?.disconnect()
 
