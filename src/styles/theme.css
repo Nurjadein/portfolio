@@ -41,7 +41,6 @@
   --hero-name-end: #6366f1;
 }
 
-/* Navy */
 :root[data-color-theme='navy'] {
   color-scheme: light;
 
@@ -82,7 +81,6 @@
   --hero-name-end: #22d3ee;
 }
 
-/* Emerald */
 :root[data-color-theme='emerald'] {
   color-scheme: light;
 
@@ -123,7 +121,6 @@
   --hero-name-end: #4ade80;
 }
 
-/* Ocean */
 :root[data-color-theme='ocean'] {
   color-scheme: light;
 
@@ -164,7 +161,6 @@
   --hero-name-end: #60a5fa;
 }
 
-/* Amber */
 :root[data-color-theme='amber'] {
   color-scheme: light;
 
