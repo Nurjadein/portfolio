@@ -6,7 +6,8 @@
     "experience": "Experience",
     "contact": "Contact",
     "resume": "Résumé",
-    "toggleMenu": "Toggle navigation menu"
+    "toggleMenu": "Toggle navigation menu",
+    "language": "Language"
   },
   "theme": {
     "switchToLight": "Switch to light mode",
