@@ -13,7 +13,17 @@
     "switchToLight": "Switch to light mode",
     "switchToDark": "Switch to dark mode",
     "lightMode": "Light Mode",
-    "darkMode": "Dark Mode"
+    "darkMode": "Dark Mode",
+    "label": "Theme",
+     "colorTheme": {
+    "label": "Color theme",
+    "select": "Select color theme",
+    "violet": "Violet",
+    "navy": "Navy",
+    "emerald": "Emerald",
+    "ocean": "Ocean",
+    "amber": "Amber"
+    }
   },
   "hero": {
     "greeting": "Hello, I am",
@@ -144,5 +154,4 @@
     "footer": {
         "rightsReserved": "All rights reserved."
     }
-
 }
