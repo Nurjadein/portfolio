@@ -8,13 +8,14 @@
     <button
       type="button"
       class="
-        relative inline-flex items-center justify-center gap-2
-        rounded-xl border border-border bg-surface
-        px-3 py-2.5 text-sm font-medium
-        text-foreground transition-colors
-        hover:bg-surface-muted
-        focus-visible:outline-2 focus-visible:outline-offset-2
-        focus-visible:outline-primary
+        inline-flex h-10 items-center justify-center gap-2
+        rounded-full border border-border
+        bg-surface/80 px-4
+        text-sm font-normal text-foreground-secondary
+        shadow-sm transition-colors
+        hover:bg-primary/10 hover:text-foreground
+        focus-visible:outline-none
+        focus-visible:ring-2 focus-visible:ring-primary
       "
       :class="fullWidth ? 'w-full' : ''"
       :aria-label="t('theme.label')"
@@ -24,7 +25,7 @@
     >
       <svg
         aria-hidden="true"
-        class="size-4 shrink-0 text-primary"
+        class="h-5 w-5 shrink-0 text-foreground-secondary"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -40,21 +41,21 @@
         <circle cx="15.5" cy="8" r="1" fill="currentColor" stroke="none" />
       </svg>
 
-      <span class="text-primary">
-        {{ t('theme.label') }}
-      </span>
+      <span>{{ t('theme.label') }}</span>
 
       <svg
         aria-hidden="true"
-        class="size-3.5 shrink-0 text-foreground transition-transform duration-200"
+        class="h-4 w-4 shrink-0 transition-transform"
         :class="{ 'rotate-180': isOpen }"
-        viewBox="0 0 20 20"
-        fill="currentColor"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
       >
         <path
-          fill-rule="evenodd"
-          d="M5.22 7.22a.75.75 0 0 1 1.06 0L10 10.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 8.28a.75.75 0 0 1 0-1.06Z"
-          clip-rule="evenodd"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m6 9 6 6 6-6"
         />
       </svg>
     </button>
@@ -92,7 +93,11 @@
             v-for="option in appearanceOptions"
             :key="option.value"
             type="button"
-            class="min-w-0 rounded-xl border p-3 text-start transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            class="
+              min-w-0 rounded-xl border p-3 text-start
+              transition-colors focus-visible:outline-2
+              focus-visible:outline-offset-2 focus-visible:outline-primary
+            "
             :class="
               theme === option.value
                 ? 'border-primary bg-primary/10'
@@ -142,7 +147,9 @@
               </svg>
             </span>
 
-            <span class="flex items-center justify-between gap-1 text-sm font-medium">
+            <span
+              class="flex items-center justify-between gap-1 text-sm font-medium"
+            >
               <span class="min-w-0">
                 {{
                   t(
@@ -181,7 +188,12 @@
             v-for="option in colorThemeOptions"
             :key="option.value"
             type="button"
-            class="flex min-w-0 items-center gap-2 rounded-xl border px-3 py-3 text-start text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            class="
+              flex min-w-0 items-center gap-2 rounded-xl
+              border px-3 py-3 text-start text-sm
+              transition-colors focus-visible:outline-2
+              focus-visible:outline-offset-2 focus-visible:outline-primary
+            "
             :class="
               colorTheme === option.value
                 ? 'border-primary bg-primary/10'
