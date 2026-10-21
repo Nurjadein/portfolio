@@ -13,7 +13,17 @@
     "switchToLight": "التبديل إلى الوضع الفاتح",
     "switchToDark": "التبديل إلى الوضع الداكن",
     "lightMode": "الوضع الفاتح",
-    "darkMode": "الوضع الداكن"
+    "darkMode": "الوضع الداكن",
+    "label": "المظهر",
+     "colorTheme": {
+    "label": "سمة الألوان",
+    "select": "اختر سمة الألوان",
+    "violet": "بنفسجي",
+    "navy": "كحلي",
+    "emerald": "زمردي",
+    "ocean": "أزرق محيطي",
+    "amber": "كهرماني"
+  }
   },
   "hero": {
     "greeting": "مرحبًا، أنا",
@@ -144,6 +154,4 @@
   "footer": {
     "rightsReserved": "جميع الحقوق محفوظة."
   }
-
-
 }
