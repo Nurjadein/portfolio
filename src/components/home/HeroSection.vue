@@ -90,39 +90,20 @@
         "
         style="animation-delay: 650ms"
       >
-        <a
+        <TheButton
           href="#experience"
-          class="
-            rounded-lg
-            bg-primary
-            px-6
-            py-3
-            font-medium
-            text-white
-            transition
-            hover:bg-primary-hover
-          "
+          size="lg"
         >
           {{ t('hero.experienceButton') }}
-        </a>
+        </TheButton>
 
-        <a
+        <TheButton
           href="#contact"
-          class="
-            rounded-lg
-            border
-            border-primary
-            bg-transparent
-            px-6
-            py-3
-            font-medium
-            text-foreground
-            transition
-            hover:text-primary
-          "
+          variant="outline"
+          size="lg"
         >
           {{ t('hero.contactButton') }}
-        </a>
+        </TheButton>
       </div>
 
       <div
@@ -169,6 +150,7 @@ import BasmalahDark from '@/assets/images/Basmalah-dark.png'
 import BasmalahLight from '@/assets/images/Basmalah-light.png'
 import { heroData } from '@/config/hero.config'
 import { useTheme } from '@/composables/useTheme'
+import TheButton from '@/components/common/TheButton.vue'
 
 const { t } = useI18n({ useScope: 'global' })
 const { theme } = useTheme()
