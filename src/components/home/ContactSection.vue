@@ -30,26 +30,11 @@
           {{ t('contact.description') }}
         </p>
 
-        <a
+        <TheButton
           :href="socialLinks.email.url"
-          class="
-            mt-8
-            inline-flex
-            items-center
-            gap-2
-            rounded-lg
-            border
-            border-border
-            bg-surface
-            px-6
-            py-3
-            text-sm
-            font-medium
-            text-foreground
-            transition
-            hover:border-primary
-            hover:bg-surface-muted
-          "
+          variant="outline"
+          size="lg"
+          class="mt-8 border-border bg-surface text-sm hover:border-primary hover:bg-surface-muted"
         >
           {{ t('contact.button') }}
 
@@ -57,7 +42,7 @@
             :icon="socialLinks.email.icon"
             :label="t('contact.emailLabel')"
           />
-        </a>
+        </TheButton>
 
         <p
           class="
@@ -132,6 +117,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
+import TheButton from '@/components/common/TheButton.vue'
 import TheContainer from '@/components/common/TheContainer.vue'
 import SocialIcon from '@/components/common/SocialIcon.vue'
 import { socialLinks } from '@/config/social.config'
