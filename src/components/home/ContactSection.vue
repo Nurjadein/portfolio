@@ -1,4 +1,3 @@
-
 <template>
   <section
     id="contact"
@@ -34,7 +33,7 @@
           :href="socialLinks.email.url"
           variant="outline"
           size="lg"
-          class="mt-8 border-border bg-surface text-sm hover:border-primary hover:bg-surface-muted"
+          class="mt-8"
         >
           {{ t('contact.button') }}
 
