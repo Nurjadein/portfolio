@@ -1,4 +1,3 @@
-
 <template>
   <a
     v-if="href"
@@ -86,16 +85,16 @@ const emit = defineEmits<{
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'bg-primary text-white hover:bg-primary-hover',
+    'border border-primary bg-primary text-white hover:bg-primary-hover hover:shadow-md',
 
   secondary:
-    'bg-surface-muted text-foreground hover:bg-primary/10',
+    'border border-transparent bg-surface-muted text-foreground hover:bg-primary/10 hover:shadow-sm',
 
   outline:
-    'border border-primary bg-transparent text-foreground hover:bg-primary/10',
+    'border border-primary bg-transparent text-foreground hover:bg-primary/10 hover:border-primary hover:shadow-sm',
 
   ghost:
-    'bg-transparent text-foreground-secondary hover:bg-primary/10 hover:text-foreground',
+    'border border-transparent bg-transparent text-foreground-secondary hover:bg-primary/10 hover:text-foreground',
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -106,8 +105,11 @@ const sizeClasses: Record<ButtonSize, string> = {
 
 const buttonClasses = computed(() => [
   'inline-flex items-center justify-center gap-2 rounded-lg',
-  'border border-transparent font-medium',
-  'transition-colors duration-200',
+  'font-medium',
+  'transition-all duration-200 ease-out',
+  'motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:active:translate-y-0 motion-reduce:active:scale-100',
+  'hover:-translate-y-0.5',
+  'active:translate-y-0 active:scale-[0.98]',
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
   'disabled:pointer-events-none disabled:opacity-50',
   variantClasses[props.variant],
