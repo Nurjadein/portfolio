@@ -60,11 +60,12 @@
           <div class="hidden items-center gap-3 md:flex">
             <LanguageSwitcher />
             <ThemeSwitcher />
-            <a
-              href="#"
-              class="rounded-lg bg-primary px-4 py-2 font-medium text-white transition hover:bg-primary-hover"
-              @click.prevent="viewResume"
-            >{{ t('nav.resume') }}</a>
+            <TheButton
+              size="sm"
+              @click="viewResume"
+            >
+              {{ t('nav.resume') }}
+            </TheButton>
           </div>
 
           <button
@@ -137,13 +138,15 @@
             </li>
 
             <li>
-              <a
+              <TheButton
                 :href="siteConfig.resume"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block rounded-lg bg-primary px-3 py-3 text-center font-medium text-white transition hover:bg-primary-hover"
+                full-width
                 @click="isMenuOpen = false"
-              >{{ t('nav.resume') }}</a>
+              >
+                {{ t('nav.resume') }}
+              </TheButton>
             </li>
           </ul>
         </div>
@@ -162,6 +165,7 @@ import { useLocale } from '@/composables/useLocale'
 import { navItems } from '@/config/nav.config'
 import { siteConfig } from '@/config/site.config'
 import { dialogBus } from '@/dialogs/core/dialog-bus'
+import TheButton from '@/components/common/TheButton.vue'
 
 const { t } = useLocale()
 
