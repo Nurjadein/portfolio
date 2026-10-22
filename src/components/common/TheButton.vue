@@ -91,7 +91,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     'border border-transparent bg-surface-muted text-foreground hover:bg-primary/10 hover:shadow-sm',
 
   outline:
-    'border border-primary bg-transparent text-foreground hover:bg-primary/10 hover:border-primary hover:shadow-sm',
+    'border border-primary/50 bg-transparent text-foreground hover:bg-primary/20 hover:border-primary hover:shadow-sm',
 
   ghost:
     'border border-transparent bg-transparent text-foreground-secondary hover:bg-primary/10 hover:text-foreground',
