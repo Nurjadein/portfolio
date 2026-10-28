@@ -19,63 +19,6 @@
           </span>
           {{ t('footer.rightsReserved') }}
         </p>
-
-        <div
-          class="
-            flex
-            items-center
-            gap-5
-          "
-        >
-          <a
-            :href="socialLinks.github.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            :aria-label="socialLinks.github.label"
-            class="
-              text-foreground-secondary
-              transition
-              hover:text-primary
-            "
-          >
-            <SocialIcon
-              :icon="socialLinks.github.icon"
-              :label="socialLinks.github.label"
-            />
-          </a>
-
-          <a
-            :href="socialLinks.linkedin.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            :aria-label="socialLinks.linkedin.label"
-            class="
-              text-foreground-secondary
-              transition
-              hover:text-primary
-            "
-          >
-            <SocialIcon
-              :icon="socialLinks.linkedin.icon"
-              :label="socialLinks.linkedin.label"
-            />
-          </a>
-
-          <a
-            :href="socialLinks.email.url"
-            :aria-label="socialLinks.email.label"
-            class="
-              text-foreground-secondary
-              transition
-              hover:text-primary
-            "
-          >
-            <SocialIcon
-              :icon="socialLinks.email.icon"
-              :label="socialLinks.email.label"
-            />
-          </a>
-        </div>
       </div>
     </TheContainer>
   </footer>
