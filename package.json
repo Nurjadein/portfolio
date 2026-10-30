@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
+    "@vueuse/core": "^15.0.0",
     "mitt": "^3.0.1",
     "pinia": "^4.0.2",
     "simple-icons": "^16.36.0",
