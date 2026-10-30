@@ -29,14 +29,14 @@
     "greeting": "Hello, I am",
     "title": "Software Developer",
     "name":"Nurjadein Abdulmorid",
-    "description": "Building scalable and maintainable web applications with modern JavaScript and TypeScript technologies.",
+    "description": "Building scalable and maintainable web applications with modern JavaScript and TypeScript, leveraging AI tools like ChatGPT and Gemini to enhance development productivity.",
     "contactButton": "Contact Me",
     "experienceButton": "View Experience",
     "basmalahAlt": "Bismillah"
   },
     "about": {
     "title": "About Me",
-    "description": "Software developer with nearly 3 years of experience building web applications using Vue, TypeScript, NestJS, and MySQL.\n\nGraduated with a BS in Information Technology major in Database Systems from Mindanao State University Main Campus, Marawi City, Philippines. Experienced in developing maintainable frontend and backend solutions, API integration, state management, and database-driven applications.\n\nFocused on building scalable, production-ready systems using industry-standard practices, with a strong focus on clean architecture, maintainability, and long-term growth.",
+    "description":"Software developer with nearly 3 years of experience building web applications using Vue, TypeScript, NestJS, and MySQL, leveraging AI tools such as ChatGPT and Google Gemini to support development, research, and problem-solving. Graduated with a BS in Information Technology, major in Database Systems, from Mindanao State University Main Campus, Marawi City, Philippines. Experienced in developing maintainable frontend and backend solutions, API integration, state management, and database-driven applications. Focused on building scalable, production-ready systems using industry-standard practices, clean architecture, and AI-assisted development to improve productivity and maintainability.",
     "highlights": {
         "experience": "Experience",
         "degree": "Degree",
@@ -79,11 +79,13 @@
             "description": "A transportation subsystem designed to support vehicle and terminal workflows through QR-based vehicle scanning, trip recording, and vehicle credit/load management.",
             "status": "Development project · Not brought to production",
             "contributions": [
-            "Adapted existing Vue and Quasar components and functionality from the main e-SeQR system.",
-            "Contributed to frontend development and modifications using TypeScript and Pinia.",
-            "Worked on vehicle and terminal workflows, including QR-based scanning and trip-related functionality.",
-            "Contributed to the vehicle credit/load functionality used for trip credit deductions after scans.",
-            "Fixed frontend bugs and issues during development."
+                "Adapted existing Vue and Quasar components and functionality from the main e-SeQR system.",
+                "Contributed to frontend development and modifications using TypeScript and Pinia.",
+                "Worked on vehicle and terminal workflows, including QR-based scanning and trip-related functionality.",
+                "Contributed to the vehicle credit/load functionality used for trip credit deductions after scans.",
+                "Used ChatGPT as an AI-assisted development tool to understand existing code, explore implementation approaches, troubleshoot errors, and improve code structure and maintainability.",
+                "Leveraged ChatGPT for technical guidance, debugging assistance, and problem-solving throughout the development process.",
+                "Fixed frontend bugs and issues during development."
             ]
         }
         }
@@ -111,7 +113,9 @@
             "contributions": [
             "Contributed to frontend development using Vue, Quasar, Vuex, and TypeScript.",
             "Worked within a NestJS-based microservices environment.",
-            "Contributed to debugging and testing, including temporary use of Cypress."
+            "Contributed to debugging and testing, including temporary use of Cypress.",
+            "Used ChatGPT as an AI-assisted development tool to understand existing code, explore implementation approaches, troubleshoot errors, and improve code structure and maintainability.",
+            "Leveraged ChatGPT for technical guidance, debugging assistance, and problem-solving throughout the development process."
             ]
         },
         "seeapp-ranao": {
