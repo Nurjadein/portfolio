@@ -53,6 +53,7 @@
    },
    "skills": {
     "title": "المهارات",
+    "currentlyLearning": "أتعلم حاليًا",
     "categories": {
         "frontend": "تطوير الواجهات الأمامية",
         "backend": "تطوير الواجهات الخلفية",
