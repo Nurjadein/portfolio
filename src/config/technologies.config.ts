@@ -85,6 +85,12 @@ export const technologies = {
     category: 'ai',
     icon: technologyIcons.gemini,
   },
+
+  react: {
+    name: 'React',
+    category: 'frontend',
+    icon: technologyIcons.react,
+  },
 } as const
 
 export type TechnologyId = keyof typeof technologies
@@ -94,6 +100,16 @@ export type TechnologyCategory = Technology['category']
 export const technologyIds = Object.keys(
   technologies,
 ) as TechnologyId[]
+
+export const currentlyLearningTechnologyIds = [
+  'react',
+] as const satisfies readonly TechnologyId[]
+
+export const currentlyLearningTechnologies =
+  currentlyLearningTechnologyIds.map((id) => ({
+    id,
+    ...technologies[id],
+  }))
 
 export const skillCategoryOrder = [
   'frontend',
@@ -106,7 +122,13 @@ export const skillCategoryOrder = [
 export const skillCategories = skillCategoryOrder.map((category) => ({
   category,
   technologies: technologyIds
-    .filter((id) => technologies[id].category === category)
+    .filter(
+      (id) =>
+        technologies[id].category === category &&
+        !currentlyLearningTechnologyIds.includes(
+          id as (typeof currentlyLearningTechnologyIds)[number],
+        ),
+    )
     .map((id) => ({
       id,
       ...technologies[id],
