@@ -22,7 +22,6 @@
           md:grid-cols-2
         "
       >
-        <!-- Frontend -->
         <div
           class="
             rounded-2xl border border-border
@@ -44,7 +43,6 @@
           </div>
         </div>
 
-        <!-- Backend -->
         <div
           class="
             rounded-2xl border border-border
@@ -66,7 +64,6 @@
           </div>
         </div>
 
-        <!-- Currently Learning -->
         <div
           class="
             rounded-2xl border border-border
@@ -88,7 +85,6 @@
           </div>
         </div>
 
-        <!-- Database -->
         <div
           class="
             rounded-2xl border border-border
@@ -110,7 +106,6 @@
           </div>
         </div>
 
-        <!-- AI -->
         <div
           class="
             rounded-2xl border border-border
