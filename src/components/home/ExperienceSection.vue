@@ -100,20 +100,50 @@
                   text-foreground
                 "
               >
-                {{ t(`experience.entries.${experience.id}.role`) }}
+                {{ t(experience.role) }}
               </h3>
 
-              <p
+              <div
                 class="
-                  mt-1
-                  text-base
-                  text-foreground-secondary
+                  mt-3
+                  flex
+                  items-center
+                  gap-3
+                  md:flex-row-reverse
+                  md:justify-start
                 "
               >
-                <span dir="ltr">{{experience.projects?.length ?  experience.company : t(`experience.entries.${experience.id}.companyName`) }}</span>
-                <span aria-hidden="true"> · </span>
-                {{ t(`experience.entries.${experience.id}.location`) }}
-              </p>
+                <AppImage
+                  v-if="experience.companyLogo"
+                  :src="experience.companyLogo.src"
+                  :alt="experience.companyLogo.alt"
+                  container-class="!mx-0 !w-auto shrink-0"
+                  image-class="
+                    h-16
+                    w-16
+                    rounded-xl
+                    border
+                    border-border
+                    bg-surface
+                    p-2
+                    object-contain
+                  "
+                />
+
+                <p class="text-base text-foreground-secondary">
+                  <span dir="auto">
+                    {{
+                      experience.companyIsTranslationKey
+                        ? t(experience.company)
+                        : experience.company
+                    }}
+                  </span>
+
+                  <span aria-hidden="true"> · </span>
+
+                  {{ t(experience.location) }}
+                </p>
+              </div>
 
               <p
                 v-if="experience.description"
@@ -124,7 +154,7 @@
                   text-foreground-secondary
                 "
               >
-                {{ t(`experience.entries.${experience.id}.description`) }}
+                {{ t(experience.description) }}
               </p>
             </div>
 
@@ -145,6 +175,22 @@
                     backdrop-blur-sm
                   "
                 >
+                  <AppImage
+                    v-if="project.screenshot"
+                    :src="project.screenshot.src"
+                    :alt="project.screenshot.alt"
+                    container-class="!mx-0 !mb-5 !w-full"
+                    image-class="
+                      aspect-video
+                      w-full
+                      rounded-xl
+                      border
+                      border-border
+                      object-cover
+                      object-top
+                    "
+                  />
+
                   <div
                     class="
                       flex
@@ -175,31 +221,27 @@
                           text-foreground-muted
                         "
                       >
-                        {{
-                          t(
-                            `experience.entries.${experience.id}.projects.${project.id}.status`,
-                          )
-                        }}
+                        {{ t(project.status) }}
                       </p>
                     </div>
 
-                    <a
+                    <TheButton
                       v-if="project.url"
                       :href="project.url"
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="
-                        shrink-0
-                        text-sm
-                        font-medium
-                        text-foreground-secondary
-                        transition
-                        hover:text-primary
-                      "
+                      variant="primary"
+                      size="md"
+                      class="shrink-0"
                     >
                       {{ t('experience.viewProject') }}
-                      <span aria-hidden="true">↗</span>
-                    </a>
+
+                      <icon
+                        name="external-link"
+                        size="xs"
+                        aria-hidden="true"
+                      />
+                    </TheButton>
                   </div>
 
                   <p
@@ -210,11 +252,7 @@
                       text-foreground-secondary
                     "
                   >
-                    {{
-                      t(
-                        `experience.entries.${experience.id}.projects.${project.id}.description`,
-                      )
-                    }}
+                    {{ t(project.description) }}
                   </p>
 
                   <div
@@ -233,8 +271,8 @@
 
                     <ul class="mt-3 space-y-3">
                       <li
-                        v-for="(_, index) in project.contributions"
-                        :key="index"
+                        v-for="contribution in project.contributions"
+                        :key="contribution"
                         class="
                           flex
                           gap-3
@@ -256,11 +294,7 @@
                         />
 
                         <span>
-                          {{
-                            t(
-                              `experience.entries.${experience.id}.projects.${project.id}.contributions.${index}`,
-                            )
-                          }}
+                          {{ t(contribution) }}
                         </span>
                       </li>
                     </ul>
@@ -319,8 +353,8 @@
 
                 <ul class="mt-4 space-y-3">
                   <li
-                    v-for="(_, index) in experience.contributions"
-                    :key="index"
+                    v-for="contribution in experience.contributions"
+                    :key="contribution"
                     class="
                       flex
                       gap-3
@@ -342,11 +376,7 @@
                     />
 
                     <span>
-                      {{
-                        t(
-                          `experience.entries.${experience.id}.contributions.${index}`,
-                        )
-                      }}
+                      {{ t(contribution) }}
                     </span>
                   </li>
                 </ul>
@@ -362,6 +392,8 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
+import AppImage from '@/components/common/AppImage.vue'
+import TheButton from '@/components/common/TheButton.vue'
 import TheContainer from '@/components/common/TheContainer.vue'
 import { experiences } from '@/config/experience.config'
 
