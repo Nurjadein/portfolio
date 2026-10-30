@@ -124,7 +124,7 @@
                     rounded-xl
                     border
                     border-border
-                    bg-surface
+                    bg-white
                     p-2
                     object-contain
                   "
