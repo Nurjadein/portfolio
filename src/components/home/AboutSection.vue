@@ -1,4 +1,3 @@
-
 <template>
   <section
     id="about"
@@ -56,7 +55,21 @@
             {{ t(item.labelKey) }}
           </p>
 
+          <div
+            v-if="item.technologyIds"
+            class="mt-4 flex flex-wrap gap-3"
+          >
+            <TechnologyBadge
+              v-for="technologyId in item.technologyIds"
+              :key="technologyId"
+              :label="getTechnology(technologyId).name"
+              :icon="getTechnology(technologyId).icon"
+              dir="ltr"
+            />
+          </div>
+
           <p
+            v-else-if="item.valueKey"
             class="
               mt-2
               text-xl
@@ -76,10 +89,20 @@
 import { useI18n } from 'vue-i18n'
 
 import TheContainer from '@/components/common/TheContainer.vue'
+import TechnologyBadge from '@/components/common/TechnologyBadge.vue'
+
+import {
+  getTechnology,
+  type TechnologyId,
+} from '@/config/technologies.config'
 
 const { t } = useI18n({ useScope: 'global' })
 
-const highlightItems = [
+const highlightItems: {
+  labelKey: string
+  valueKey?: string
+  technologyIds?: readonly TechnologyId[]
+}[] = [
   {
     labelKey: 'about.highlights.experience',
     valueKey: 'about.values.experience',
@@ -90,11 +113,25 @@ const highlightItems = [
   },
   {
     labelKey: 'about.highlights.primaryStack',
-    valueKey: 'about.values.primaryStack',
+    technologyIds: [
+      'vue3',
+      'typescript',
+      'quasar',
+      'tailwindcss',
+    ],
   },
   {
     labelKey: 'about.highlights.backend',
-    valueKey: 'about.values.backend',
+    technologyIds: [
+      'nestjs',
+      'mysql',
+    ],
   },
-] as const
+  {
+    labelKey: 'skills.currentlyLearning',
+    technologyIds: [
+      'react',
+    ],
+  },
+]
 </script>
