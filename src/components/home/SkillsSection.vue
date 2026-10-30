@@ -1,4 +1,3 @@
-
 <template>
   <section
     id="skills"
@@ -8,9 +7,7 @@
       <div class="text-center">
         <h2
           class="
-            text-3xl
-            font-bold
-            text-foreground
+            text-3xl font-bold text-foreground
             md:text-4xl
           "
         >
@@ -20,59 +17,36 @@
 
       <div
         class="
-          mt-16
-          grid
-          gap-6
+          mt-16 grid gap-6
           md:grid-cols-2
         "
       >
         <div
           v-for="category in skillCategories"
-          :key="category.key"
+          :key="category.category"
           class="
-            rounded-2xl
-            border
-            border-border
-            bg-surface
-            p-6
-            backdrop-blur-sm
+            rounded-2xl border border-border
+            bg-surface p-6 backdrop-blur-sm
           "
         >
           <h3
-            class="
-              text-xl
-              font-semibold
-              text-foreground
-            "
+            class="text-xl font-semibold text-foreground"
           >
-            {{ t(category.titleKey) }}
+            {{ t(`skills.categories.${category.category}`) }}
           </h3>
 
           <div
             class="
-              mt-6
-              flex
-              flex-wrap
-              gap-3
+              mt-6 flex flex-wrap gap-3
             "
           >
-            <span
-              v-for="skill in category.skills"
-              :key="skill"
+            <TechnologyBadge
+              v-for="technology in category.technologies"
+              :key="technology.id"
+              :label="technology.name"
+              :icon="technology.icon"
               dir="ltr"
-              class="
-                rounded-full
-                border
-                border-border
-                bg-surface-muted
-                px-4
-                py-2
-                text-sm
-                text-foreground-secondary
-              "
-            >
-              {{ skill }}
-            </span>
+            />
           </div>
         </div>
       </div>
@@ -84,20 +58,9 @@
 import { useI18n } from 'vue-i18n'
 
 import TheContainer from '@/components/common/TheContainer.vue'
-import { skillsData } from '@/config/skills.config'
+import TechnologyBadge from '@/components/common/TechnologyBadge.vue'
+
+import { skillCategories } from '@/config/technologies.config'
 
 const { t } = useI18n({ useScope: 'global' })
-
-const categoryKeys = {
-  Frontend: 'frontend',
-  Backend: 'backend',
-  Database: 'database',
-  Tools: 'tools',
-} as const
-
-const skillCategories = skillsData.categories.map((category) => ({
-  ...category,
-  key: categoryKeys[category.title as keyof typeof categoryKeys],
-  titleKey: `skills.categories.${categoryKeys[category.title as keyof typeof categoryKeys]}`,
-}))
 </script>
