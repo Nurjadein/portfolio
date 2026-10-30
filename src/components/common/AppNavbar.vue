@@ -1,4 +1,3 @@
-
 <template>
   <header
     ref="navbarRef"
@@ -33,7 +32,6 @@
               :alt="siteConfig.name"
               container-class="h-12 w-12 rounded-xl"
               image-class="h-full w-full object-contain"
-              loading="eager"
             />
           </a>
 
@@ -156,107 +154,96 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { computed, ref } from 'vue'
+import {
+  useIntersectionObserver,
+  useResizeObserver,
+  useWindowScroll,
+} from '@vueuse/core'
 
 import AppImage from '@/components/common/AppImage.vue'
 import LanguageSwitcher from '@/components/common/LanguageSwitcher.vue'
+import TheButton from '@/components/common/TheButton.vue'
 import ThemeSwitcher from '@/components/common/ThemeSwitcher.vue'
 import { useLocale } from '@/composables/useLocale'
 import { navItems } from '@/config/nav.config'
 import { siteConfig } from '@/config/site.config'
 import { dialogBus } from '@/dialogs/core/dialog-bus'
-import TheButton from '@/components/common/TheButton.vue'
+import { onMounted } from 'vue'
 
 const { t } = useLocale()
 
 const isMenuOpen = ref(false)
-const isScrolled = ref(false)
 const activeSection = ref('home')
 const navbarRef = ref<HTMLElement | null>(null)
 
-let observer: IntersectionObserver | null = null
-let resizeObserver: ResizeObserver | null = null
+const sections = ref<HTMLElement[]>([])
 
 const SCROLL_THRESHOLD = 8
 
 const getSectionId = (href: string) => href.slice(1)
 
-const updateScrollState = () => {
-  isScrolled.value = window.scrollY > SCROLL_THRESHOLD
-}
+const { y: scrollY } = useWindowScroll()
+
+const isScrolled = computed(
+  () => scrollY.value > SCROLL_THRESHOLD,
+)
 
 const handleNavigation = (href: string) => {
   activeSection.value = getSectionId(href)
   isMenuOpen.value = false
 }
 
-const getSections = () => {
-  return navItems
-    .map((item) => document.getElementById(getSectionId(item.href)))
-    .filter((section): section is HTMLElement => section !== null)
-}
+const rootMargin = ref('0px 0px -80% 0px')
 
-const createObserver = () => {
-  observer?.disconnect()
-
-  const navbarHeight =
-    navbarRef.value?.getBoundingClientRect().height ?? 0
-
-  observer = new IntersectionObserver(
-    (entries) => {
-      const activeEntry = entries.find(
-        (entry) => entry.isIntersecting,
-      )
-
-      if (activeEntry?.target instanceof HTMLElement) {
-        activeSection.value = activeEntry.target.id
-      }
-    },
-    {
-      root: null,
-      rootMargin: `-${navbarHeight}px 0px -80% 0px`,
-      threshold: 0,
-    },
+const updateActiveSection = (
+  entries: IntersectionObserverEntry[],
+) => {
+  const visibleEntries = entries.filter(
+    (entry) => entry.isIntersecting,
   )
 
-  getSections().forEach((section) => {
-    observer?.observe(section)
+  if (visibleEntries.length === 0) return
+
+  const activeEntry = visibleEntries.reduce((closest, current) => {
+    return current.boundingClientRect.top <
+      closest.boundingClientRect.top
+      ? current
+      : closest
   })
+
+  if (activeEntry.target instanceof HTMLElement) {
+    activeSection.value = activeEntry.target.id
+  }
 }
 
-onMounted(() => {
-  updateScrollState()
+useIntersectionObserver(
+  sections,
+  updateActiveSection,
+  {
+    rootMargin,
+    threshold: 0,
+  },
+)
 
-  window.addEventListener('scroll', updateScrollState, {
-    passive: true,
-  })
+useResizeObserver(navbarRef, ([entry]) => {
+  if (!entry) return
 
-  createObserver()
-
-  if (navbarRef.value) {
-    resizeObserver = new ResizeObserver(() => {
-      createObserver()
-    })
-
-    resizeObserver.observe(navbarRef.value)
-  }
+  rootMargin.value = `-${entry.contentRect.height}px 0px -80% 0px`
 })
 
-onUnmounted(() => {
-  window.removeEventListener('scroll', updateScrollState)
-
-  observer?.disconnect()
-  resizeObserver?.disconnect()
-
-  observer = null
-  resizeObserver = null
-})
-
-function viewResume() {
+const viewResume = () => {
   dialogBus.emit('viewResume', {
     callback: () => {
       console.log('Test Callback')
     },
   })
 }
+
+
+onMounted(() => {
+  sections.value = navItems
+    .map((item) => document.getElementById(getSectionId(item.href)))
+    .filter((section): section is HTMLElement => section !== null)
+})
 </script>
