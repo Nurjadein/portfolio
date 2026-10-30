@@ -1,33 +1,64 @@
-
 import type { IExperience } from '@/interfaces/experience.interface'
 
-export const intro: string =
-  `My professional experience and the projects I've contributed to throughout my career.`
+import itsmarawiLogoSrc from '@/assets/images/experience/itsmarawi-logo.png'
+import dunkinLogoSrc from '@/assets/images/experience/dunkin-logo.png'
+import eseqrScreenshotSrc from '@/assets/images/experience/eseqr-transportation.png'
+import hrsScreenshotSrc from '@/assets/images/experience/hrs.png'
+import seeappScreenshotSrc from '@/assets/images/experience/seeapp-ranao.png'
+import kandoriScreenshotSrc from '@/assets/images/experience/kandori.png'
 
-export const experiences: IExperience[] = [
+interface IExperienceImage {
+  src: string
+  alt: string
+}
+
+type IExperienceWithMedia = IExperience & {
+  companyIsTranslationKey?: boolean
+  companyLogo?: IExperienceImage
+  projects?: Array<
+    NonNullable<IExperience['projects']>[number] & {
+      screenshot?: IExperienceImage
+    }
+  >
+}
+
+const itsmarawiLogo: IExperienceImage = {
+  src: itsmarawiLogoSrc,
+  alt: 'ITSMarawi company logo',
+}
+
+const dunkinLogo: IExperienceImage = {
+  src: dunkinLogoSrc,
+  alt: 'Dunkin company logo',
+}
+
+export const experiences: IExperienceWithMedia[] = [
   {
     id: 'itsmarawi-developer-2025',
     company: 'ITSMarawi',
-    role: 'Developer',
+    role: 'experience.entries.itsmarawi-developer-2025.role',
     startDate: 'Jul 2025',
     endDate: 'Feb 2026',
-    location: 'Marawi City',
+    location: 'experience.entries.itsmarawi-developer-2025.location',
     description:
-      'Collaborated with a frontend development team on a transportation-focused subsystem of the e-SeQR platform.',
+      'experience.entries.itsmarawi-developer-2025.description',
+    companyLogo: itsmarawiLogo,
     projects: [
       {
         id: 'eseqr-transportation',
         name: 'e-SeQR Transportation',
         description:
-          `A transportation subsystem designed to support vehicle and terminal workflows
-          through QR-based vehicle scanning, trip recording, and vehicle credit/load management.`,
-        status: 'Development project · Not brought to production',
+          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.description',
+        status:
+          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.status',
         contributions: [
-          'Adapted existing Vue and Quasar components and functionality from the main e-SeQR system.',
-          'Contributed to frontend development and modifications using TypeScript and Pinia.',
-          'Worked on vehicle and terminal workflows, including QR-based scanning and trip-related functionality.',
-          'Contributed to the vehicle credit/load functionality used for trip credit deductions after scans.',
-          'Fixed frontend bugs and issues during development.',
+          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions.0',
+          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions.1',
+          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions.2',
+          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions.3',
+          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions.4',
+          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions.5',
+          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions.6',
         ],
         technologies: [
           'Vue.js',
@@ -38,47 +69,57 @@ export const experiences: IExperience[] = [
           'GitHub',
         ],
         url: 'https://eseqr-transpo.web.app/',
+        screenshot: {
+          src: eseqrScreenshotSrc,
+          alt: 'e-SeQR Transportation landing page',
+        },
       },
     ],
   },
 
   {
     id: 'dunkin-team-member',
-    company: '(DUNKIN) Shahia Food Limited Company',
-    role: 'Team Member',
+    company: 'experience.entries.dunkin-team-member.companyName',
+    companyIsTranslationKey: true,
+    role: 'experience.entries.dunkin-team-member.role',
     startDate: 'Sep 2023',
     endDate: 'Nov 2024',
-    location: 'KSA',
+    location: 'experience.entries.dunkin-team-member.location',
     description:
-      'Worked across multiple store operations in a fast-paced restaurant environment.',
+      'experience.entries.dunkin-team-member.description',
+    companyLogo: dunkinLogo,
     contributions: [
-      'Prepared beverages and served food and donuts.',
-      'Handled cashiering and customer service.',
-      'Performed stock counting and inventory-related tasks.',
-      'Maintained store cleanliness and supported daily store operations.',
+      'experience.entries.dunkin-team-member.contributions.0',
+      'experience.entries.dunkin-team-member.contributions.1',
+      'experience.entries.dunkin-team-member.contributions.2',
+      'experience.entries.dunkin-team-member.contributions.3',
     ],
   },
 
   {
     id: 'itsmarawi-associate-engineer',
     company: 'ITSMarawi',
-    role: 'Associate Software Engineer',
+    role: 'experience.entries.itsmarawi-associate-engineer.role',
     startDate: 'Sep 2021',
     endDate: 'Jun 2023',
-    location: 'Marawi City',
+    location: 'experience.entries.itsmarawi-associate-engineer.location',
     description:
-      'Collaborated with a software development team on internal and community-focused applications across frontend and backend development.',
+      'experience.entries.itsmarawi-associate-engineer.description',
+    companyLogo: itsmarawiLogo,
     projects: [
       {
         id: 'human-resources-system',
         name: 'Human Resources System (HRS)',
         description:
-          'An internal human resources application used within the organization for local office operations.',
-        status: 'Internal application · Private',
+          'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.description',
+        status:
+          'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.status',
         contributions: [
-          'Contributed to frontend development using Vue, Quasar, Vuex, and TypeScript.',
-          'Worked within a NestJS-based microservices environment.',
-          'Contributed to debugging and testing, including temporary use of Cypress.',
+          'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.contributions.0',
+          'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.contributions.1',
+          'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.contributions.2',
+          'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.contributions.3',
+          'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.contributions.4',
         ],
         technologies: [
           'Vue.js',
@@ -90,19 +131,24 @@ export const experiences: IExperience[] = [
           'Git',
           'GitHub',
         ],
+        screenshot: {
+          src: hrsScreenshotSrc,
+          alt: 'Human Resources System interface marked PRIVATE',
+        },
       },
       {
         id: 'seeapp-ranao',
         name: 'SeeApp Ranao',
         description:
-          'A vaccination management and monitoring system developed during the COVID-19 pandemic, supporting online booking, registration, vaccination records, vaccination ID processing, and QR-based monitoring workflows.',
-        status: 'Public project',
+          'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.description',
+        status:
+          'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.status',
         contributions: [
-          'Contributed to frontend and backend development as part of the development team.',
-          'Worked within the existing Quasar/Vue and NestJS application stack.',
-          'Worked with TypeScript and Vuex across the application.',
-          'Used OpenAPI-generated API functionality to communicate between the frontend and backend.',
-          'Collaborated using Git and GitHub throughout development.',
+          'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.contributions.0',
+          'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.contributions.1',
+          'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.contributions.2',
+          'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.contributions.3',
+          'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.contributions.4',
         ],
         technologies: [
           'Vue.js',
@@ -115,6 +161,10 @@ export const experiences: IExperience[] = [
           'GitHub',
         ],
         url: 'https://seeapp-vaccine.itsmarawi.com/',
+        screenshot: {
+          src: seeappScreenshotSrc,
+          alt: 'SeeApp Ranao landing page',
+        },
       },
     ],
   },
@@ -122,24 +172,25 @@ export const experiences: IExperience[] = [
   {
     id: 'itsmarawi-intern',
     company: 'ITSMarawi',
-    role: 'Developer Intern',
+    role: 'experience.entries.itsmarawi-intern.role',
     startDate: 'May 2021',
     endDate: 'Aug 2021',
-    location: 'Marawi City',
+    location: 'experience.entries.itsmarawi-intern.location',
     description:
-      'Worked as part of a development team on Kandori, an online restaurant portal developed to help local MSMEs establish online ordering capabilities.',
+      'experience.entries.itsmarawi-intern.description',
+    companyLogo: itsmarawiLogo,
     projects: [
       {
         id: 'kandori',
         name: 'Kandori',
         description:
-          'An online restaurant portal developed to help local MSMEs provide online ordering services while reducing reliance on high-commission food delivery platforms.',
+          'experience.entries.itsmarawi-intern.projects.kandori.description',
         contributions: [
-          'Contributed to frontend and backend development as part of the development team.',
-          'Worked with Quasar/Vue, TypeScript, Vuex, and NestJS.',
-          'Used OpenAPI-based API functionality during application development.',
-          'Used Git and GitHub for version control and team collaboration.',
-          'Gained practical experience working within an Agile-oriented software development workflow.',
+          'experience.entries.itsmarawi-intern.projects.kandori.contributions.0',
+          'experience.entries.itsmarawi-intern.projects.kandori.contributions.1',
+          'experience.entries.itsmarawi-intern.projects.kandori.contributions.2',
+          'experience.entries.itsmarawi-intern.projects.kandori.contributions.3',
+          'experience.entries.itsmarawi-intern.projects.kandori.contributions.4',
         ],
         technologies: [
           'Vue.js',
@@ -152,6 +203,10 @@ export const experiences: IExperience[] = [
           'GitHub',
         ],
         url: 'https://kandori.itsmarawi.com/',
+        screenshot: {
+          src: kandoriScreenshotSrc,
+          alt: 'Kandori landing page',
+        },
       },
     ],
   },
