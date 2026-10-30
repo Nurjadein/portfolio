@@ -1,4 +1,7 @@
-import type { IExperience } from '@/interfaces/experience.interface'
+import type {
+  IExperience,
+  IExperienceImage,
+} from '@/interfaces/experience.interface'
 
 import itsmarawiLogoSrc from '@/assets/images/experience/itsmarawi-logo.png'
 import dunkinLogoSrc from '@/assets/images/experience/dunkin-logo.png'
@@ -6,21 +9,6 @@ import eseqrScreenshotSrc from '@/assets/images/experience/eseqr-transportation.
 import hrsScreenshotSrc from '@/assets/images/experience/hrs.png'
 import seeappScreenshotSrc from '@/assets/images/experience/seeapp-ranao.png'
 import kandoriScreenshotSrc from '@/assets/images/experience/kandori.png'
-
-interface IExperienceImage {
-  src: string
-  alt: string
-}
-
-type IExperienceWithMedia = IExperience & {
-  companyIsTranslationKey?: boolean
-  companyLogo?: IExperienceImage
-  projects?: Array<
-    NonNullable<IExperience['projects']>[number] & {
-      screenshot?: IExperienceImage
-    }
-  >
-}
 
 const itsmarawiLogo: IExperienceImage = {
   src: itsmarawiLogoSrc,
@@ -32,7 +20,7 @@ const dunkinLogo: IExperienceImage = {
   alt: 'Dunkin company logo',
 }
 
-export const experiences: IExperienceWithMedia[] = [
+export const experiences: IExperience[] = [
   {
     id: 'itsmarawi-developer-2025',
     company: 'ITSMarawi',
@@ -51,15 +39,8 @@ export const experiences: IExperienceWithMedia[] = [
           'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.description',
         status:
           'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.status',
-        contributions: [
-          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions.0',
-          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions.1',
-          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions.2',
-          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions.3',
-          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions.4',
-          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions.5',
-          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions.6',
-        ],
+        contributions:
+          'experience.entries.itsmarawi-developer-2025.projects.eseqr-transportation.contributions',
         technologies: [
           'Vue.js',
           'Quasar',
@@ -88,12 +69,8 @@ export const experiences: IExperienceWithMedia[] = [
     description:
       'experience.entries.dunkin-team-member.description',
     companyLogo: dunkinLogo,
-    contributions: [
-      'experience.entries.dunkin-team-member.contributions.0',
-      'experience.entries.dunkin-team-member.contributions.1',
-      'experience.entries.dunkin-team-member.contributions.2',
-      'experience.entries.dunkin-team-member.contributions.3',
-    ],
+    contributions:
+      'experience.entries.dunkin-team-member.contributions',
   },
 
   {
@@ -114,13 +91,8 @@ export const experiences: IExperienceWithMedia[] = [
           'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.description',
         status:
           'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.status',
-        contributions: [
-          'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.contributions.0',
-          'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.contributions.1',
-          'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.contributions.2',
-          'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.contributions.3',
-          'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.contributions.4',
-        ],
+        contributions:
+          'experience.entries.itsmarawi-associate-engineer.projects.human-resources-system.contributions',
         technologies: [
           'Vue.js',
           'Quasar',
@@ -143,13 +115,8 @@ export const experiences: IExperienceWithMedia[] = [
           'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.description',
         status:
           'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.status',
-        contributions: [
-          'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.contributions.0',
-          'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.contributions.1',
-          'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.contributions.2',
-          'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.contributions.3',
-          'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.contributions.4',
-        ],
+        contributions:
+          'experience.entries.itsmarawi-associate-engineer.projects.seeapp-ranao.contributions',
         technologies: [
           'Vue.js',
           'Quasar',
@@ -185,13 +152,8 @@ export const experiences: IExperienceWithMedia[] = [
         name: 'Kandori',
         description:
           'experience.entries.itsmarawi-intern.projects.kandori.description',
-        contributions: [
-          'experience.entries.itsmarawi-intern.projects.kandori.contributions.0',
-          'experience.entries.itsmarawi-intern.projects.kandori.contributions.1',
-          'experience.entries.itsmarawi-intern.projects.kandori.contributions.2',
-          'experience.entries.itsmarawi-intern.projects.kandori.contributions.3',
-          'experience.entries.itsmarawi-intern.projects.kandori.contributions.4',
-        ],
+        contributions:
+          'experience.entries.itsmarawi-intern.projects.kandori.contributions',
         technologies: [
           'Vue.js',
           'Quasar',
