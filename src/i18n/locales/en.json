@@ -57,7 +57,8 @@
         "frontend": "Frontend",
         "backend": "Backend",
         "database": "Database",
-        "tools": "Tools"
+        "tools": "Tools",
+        "ai": "AI"
      }
     },
     
