@@ -1,4 +1,3 @@
-
 import {
   siVuedotjs,
   siTypescript,
@@ -7,6 +6,7 @@ import {
   siPinia,
   siTailwindcss,
   siNestjs,
+  siReact,
   siMysql,
   siGit,
   siGithub,
@@ -16,11 +16,15 @@ import {
 } from 'simple-icons';
 
 import type { SimpleIcon } from 'simple-icons';
+import openaiBlossom from '@/assets/logos/openai-blossom.svg';
 
-function toBrandSvgDataUrl(icon: SimpleIcon): string {
+function toBrandSvgDataUrl(
+  icon: SimpleIcon,
+  color: string = `#${icon.hex}`,
+): string {
   const svg = icon.svg.replace(
     /<path\b/g,
-    `<path fill="#${icon.hex}"`,
+    `<path fill="${color}"`,
   );
 
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
@@ -35,7 +39,7 @@ const restApisIcon = toCustomSvgDataUrl(`
     <path
       d="M16 15L9 24L16 33M32 15L39 24L32 33"
       fill="none"
-      stroke="#2563EB"
+      stroke="#175A9E"
       stroke-width="3.2"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -43,7 +47,7 @@ const restApisIcon = toCustomSvgDataUrl(`
     <path
       d="M27 12L21 36"
       fill="none"
-      stroke="#2563EB"
+      stroke="#175A9E"
       stroke-width="3"
       stroke-linecap="round"
     />
@@ -54,14 +58,14 @@ const indexedDbIcon = toCustomSvgDataUrl(`
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
     <path
       d="M8 13C8 9.7 15.2 7 24 7S40 9.7 40 13V35C40 38.3 32.8 41 24 41S8 38.3 8 35Z"
-      fill="#E96B24"
+      fill="#B85B1C"
     />
     <ellipse
       cx="24"
       cy="13"
       rx="16"
       ry="6"
-      fill="#F59A59"
+      fill="#C77A3D"
     />
     <path
       d="M8 24C8 27.3 15.2 30 24 30S40 27.3 40 24M8 35C8 38.3 15.2 41 24 41S40 38.3 40 35"
@@ -72,42 +76,29 @@ const indexedDbIcon = toCustomSvgDataUrl(`
   </svg>
 `);
 
-const chatgptIcon = toCustomSvgDataUrl(`
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 48 48"
-    fill="none"
-    stroke="#10A37F"
-    stroke-width="2.8"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path d="M24 7.5 32.5 12.4 32.5 22.2 24 27.1 15.5 22.2 15.5 12.4Z"/>
-    <path d="M24 7.5 32.5 2.8 41 7.7 41 17.5 32.5 22.2"/>
-    <path d="M41 17.5 41 27.3 32.5 32.2 24 27.1"/>
-    <path d="M32.5 32.2 24 37.1 15.5 32.2 15.5 22.2"/>
-    <path d="M15.5 32.2 7 27.3 7 17.5 15.5 12.4"/>
-    <path d="M7 17.5 7 7.7 15.5 2.8 24 7.5"/>
-  </svg>
-`);
-
 export const technologyIcons = {
-  vue3: toBrandSvgDataUrl(siVuedotjs),
-  typescript: toBrandSvgDataUrl(siTypescript),
-  javascript: toBrandSvgDataUrl(siJavascript),
-  quasar: toBrandSvgDataUrl(siQuasar),
-  pinia: toBrandSvgDataUrl(siPinia),
-  tailwindcss: toBrandSvgDataUrl(siTailwindcss),
-  nestjs: toBrandSvgDataUrl(siNestjs),
+  vue3: toBrandSvgDataUrl(siVuedotjs, '#27865F'),
+  typescript: toBrandSvgDataUrl(siTypescript, '#245A91'),
+  javascript: toBrandSvgDataUrl(siJavascript, '#A98200'),
+  quasar: toBrandSvgDataUrl(siQuasar, '#175A9E'),
+  pinia: toBrandSvgDataUrl(siPinia, '#A98216'),
+  tailwindcss: toBrandSvgDataUrl(siTailwindcss, '#087F96'),
+
+  react: toBrandSvgDataUrl(siReact, '#087EA4'),
+
+  nestjs: toBrandSvgDataUrl(siNestjs, '#B51F40'),
   restApis: restApisIcon,
-  openapi: toBrandSvgDataUrl(siOpenapiinitiative),
-  mysql: toBrandSvgDataUrl(siMysql),
+  openapi: toBrandSvgDataUrl(siOpenapiinitiative, '#688500'),
+
+  mysql: toBrandSvgDataUrl(siMysql, '#075B70'),
   indexeddb: indexedDbIcon,
-  git: toBrandSvgDataUrl(siGit),
-  github: toBrandSvgDataUrl(siGithub),
-  npm: toBrandSvgDataUrl(siNpm),
-  chatgpt: chatgptIcon,
-  gemini: toBrandSvgDataUrl(siGooglegemini),
+
+  git: toBrandSvgDataUrl(siGit, '#B93824'),
+  github: toBrandSvgDataUrl(siGithub, '#24292F'),
+  npm: toBrandSvgDataUrl(siNpm, '#B52E2E'),
+
+  chatgpt: openaiBlossom,
+  gemini: toBrandSvgDataUrl(siGooglegemini, '#356AC3'),
 } as const;
 
 export type TechnologyIconId = keyof typeof technologyIcons;
