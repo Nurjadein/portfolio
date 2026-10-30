@@ -1,14 +1,7 @@
-
 <template>
   <section
     id="home"
-    class="
-      flex
-      flex-col
-      items-center
-      py-5
-      text-center
-    "
+    class="flex flex-col items-center py-5 text-center"
   >
     <TheContainer>
       <div
@@ -34,19 +27,11 @@
 
       <h1
         class="
-          hero-reveal
-          mt-2
-          bg-linear-to-r
-          from-hero-name-start
-          to-hero-name-end
-          bg-clip-text
-          text-5xl
-          font-extrabold
-          leading-tight
-          tracking-tight
-          text-transparent
-          md:text-6xl
-          lg:text-7xl
+          hero-reveal mt-2 bg-linear-to-r
+          from-hero-name-start to-hero-name-end
+          bg-clip-text text-5xl font-extrabold
+          leading-tight tracking-tight text-transparent
+          md:text-6xl lg:text-7xl
         "
         style="animation-delay: 350ms"
       >
@@ -55,12 +40,8 @@
 
       <p
         class="
-          hero-reveal
-          mt-4
-          text-xl
-          font-medium
-          text-foreground
-          md:text-2xl
+          hero-reveal mt-4 text-xl font-medium
+          text-foreground md:text-2xl
         "
         style="animation-delay: 450ms"
       >
@@ -69,31 +50,22 @@
 
       <p
         class="
-          hero-reveal
-          mx-auto
-          mt-6
-          max-w-2xl
+          hero-reveal mx-auto mt-6 max-w-2xl
           text-foreground-secondary
         "
         style="animation-delay: 550ms"
       >
         {{ t('hero.description') }}
       </p>
+
       <div
         class="
-          hero-reveal
-          mt-8
-          flex
-          flex-wrap
-          justify-center
-          gap-4
+          hero-reveal mt-8 flex flex-wrap
+          justify-center gap-4
         "
         style="animation-delay: 650ms"
       >
-        <TheButton
-          href="#experience"
-          size="lg"
-        >
+        <TheButton href="#experience" size="lg">
           {{ t('hero.experienceButton') }}
         </TheButton>
 
@@ -108,33 +80,18 @@
 
       <div
         class="
-          hero-reveal
-          mt-12
-          flex
-          flex-wrap
-          justify-center
-          gap-3
+          hero-reveal mt-12 flex flex-wrap
+          justify-center gap-3
         "
         style="animation-delay: 750ms"
       >
-        <span
-          v-for="technology in heroData.technologies"
-          :key="technology"
+        <TechnologyBadge
+          v-for="technology in heroTechnologies"
+          :key="technology.id"
+          :label="technology.name"
+          :icon="technology.icon"
           dir="ltr"
-          class="
-            rounded-full
-            border
-            border-border
-            bg-surface-muted
-            px-4
-            py-2
-            text-sm
-            text-foreground-secondary
-            backdrop-blur-sm
-          "
-        >
-          {{ technology }}
-        </span>
+        />
       </div>
     </TheContainer>
   </section>
@@ -146,11 +103,14 @@ import { useI18n } from 'vue-i18n'
 
 import AppImage from '@/components/common/AppImage.vue'
 import TheContainer from '@/components/common/TheContainer.vue'
+import TheButton from '@/components/common/TheButton.vue'
+import TechnologyBadge from '@/components/common/TechnologyBadge.vue'
+
 import BasmalahDark from '@/assets/images/Basmalah-dark.png'
 import BasmalahLight from '@/assets/images/Basmalah-light.png'
-import { heroData } from '@/config/hero.config'
+
+import { heroTechnologies } from '@/config/technologies.config'
 import { useTheme } from '@/composables/useTheme'
-import TheButton from '@/components/common/TheButton.vue'
 
 const { t } = useI18n({ useScope: 'global' })
 const { theme } = useTheme()
