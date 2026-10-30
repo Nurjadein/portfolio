@@ -53,6 +53,7 @@
    
     "skills": {
     "title": "Skills",
+    "currentlyLearning": "Currently Learning",
     "categories": {
         "frontend": "Frontend",
         "backend": "Backend",
